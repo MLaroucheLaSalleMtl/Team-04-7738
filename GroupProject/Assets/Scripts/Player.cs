@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float runSpeed = 6.5f;
-    [SerializeField] float jumpHeight = 6.5f;
+    [SerializeField] float movementSpeed = 3.5f;
+    [SerializeField] float jumpHeight = 7f;
+
 
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -31,7 +32,7 @@ public class Player : MonoBehaviour
         bool facingRight = true;
 
         float movement = Input.GetAxis("Horizontal");//value between -1 to 1
-        Vector2 playerVelocity = new Vector2(movement * runSpeed, myRigidbody.velocity.y);
+        Vector2 playerVelocity = new Vector2(movement * movementSpeed, myRigidbody.velocity.y);
         myRigidbody.velocity = playerVelocity;
 
         facingRight = (movement < 0) ? false : true;
@@ -39,13 +40,13 @@ public class Player : MonoBehaviour
 
         if (movement != 0)
         {
-            myAnimator.SetBool("isRunning", true);
+            myAnimator.SetBool("isWalking", true);
             GetComponent<SpriteRenderer>().flipX = !facingRight;
         }
 
         else
         {
-            myAnimator.SetBool("isRunning", false);
+            myAnimator.SetBool("isWalking", false);
         }
     }
 
@@ -54,7 +55,7 @@ public class Player : MonoBehaviour
         if (Input.GetButton("Jump") && isGrounded)
         {
             Vector2 jumpForce = new Vector2(myRigidbody.velocity.x, jumpHeight);
-            myRigidbody.AddForce(jumpForce);
+            myRigidbody.velocity = jumpForce;
             myAnimator.SetBool("Jump", true);
         }
 
@@ -69,6 +70,6 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
-        
+
     }
 }
