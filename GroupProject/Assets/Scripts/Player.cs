@@ -1,23 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     [SerializeField] float movementSpeed = 3.5f;
     [SerializeField] float jumpHeight = 7f;
-
+    [SerializeField] Image dashCDImage;
+    private float dashDistance = 150f;
 
     Rigidbody2D myRigidbody;
     Animator myAnimator;
 
-    bool isGrounded = true;
+    private bool isGrounded = true;
+    private bool canDash = true;
+    private float dashTime;
+    private float dashCoolDown = 3f;
+    
+
+    private const float DASH_DURATION = 0.4f;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+
+        dashTime = DASH_DURATION;
     }
 
     // Update is called once per frame
@@ -76,14 +86,46 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        if (Input.GetButton("Fire2"))
-        {
-            //myAnimator.SetBool("Dash", true);
+        Vector2 dashForce;
 
-            //if(myAnimator.)
-            //myAnimator.SetBool("Dash", false);
-            myAnimator.SetTrigger("DashT");
-            
+        if (Input.GetButton("Fire2") && canDash)
+        {
+            canDash = false;
+            myAnimator.SetBool("Dash", true);
+
+            if (!GetComponent<SpriteRenderer>().flipX)
+            {
+                dashForce = new Vector2(myRigidbody.velocity.x + dashDistance, myRigidbody.velocity.y);
+                
+            }
+
+            else
+            {
+                dashForce = new Vector2(myRigidbody.velocity.x - dashDistance, myRigidbody.velocity.y);
+            }
+
+            myRigidbody.velocity = dashForce;
+        }
+
+        if (!canDash)
+        {
+            dashTime -= Time.deltaTime;
+            dashCoolDown -= Time.deltaTime;
+            //dashCDImage.fillAmount = ;
+
+            Debug.Log(dashCoolDown);
+            Debug.Log(dashCDImage.fillAmount);
+            if (dashTime <= 0)
+            {
+                dashTime = DASH_DURATION;
+                myAnimator.SetBool("Dash", false);
+            }
+
+            if (dashCoolDown <= 0)
+            {
+                dashCoolDown = 3f;
+                canDash = true;
+            }
         }
     }
 }

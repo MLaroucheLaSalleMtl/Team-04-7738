@@ -153,3 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 3.5
   jumpHeight: 7
+  dashDistance: 20
