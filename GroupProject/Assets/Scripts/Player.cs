@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     {
         Run();
         Jump();
+        Dash();
     }
 
     void Run()
@@ -71,5 +72,18 @@ public class Player : MonoBehaviour
         }
 
 
+    }
+
+    void Dash()
+    {
+        if (Input.GetButton("Fire2"))
+        {
+            //myAnimator.SetBool("Dash", true);
+
+            //if(myAnimator.)
+            //myAnimator.SetBool("Dash", false);
+            myAnimator.SetTrigger("DashT");
+            
+        }
     }
 }
