@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,18 +9,26 @@ public class Player : MonoBehaviour
     [SerializeField] float movementSpeed = 3.5f;
     [SerializeField] float jumpHeight = 7f;
     [SerializeField] Image dashCDImage;
-    private float dashDistance = 150f;
+    [SerializeField] Slider mpSlider;
 
     Rigidbody2D myRigidbody;
     Animator myAnimator;
 
+    //Jump
     private bool isGrounded = true;
+    
+    //Mana
+    private float mpRegenInterval = 1f;
+    private bool needsMana = false;
+
+    //Dash
+    private const float DASH_DURATION = 0.4f;
+    private const int DASH_MANA_COST = 15;
+
     private bool canDash = true;
     private float dashTime;
     private float dashCoolDown = 3f;
-    
-
-    private const float DASH_DURATION = 0.4f;
+    private float dashDistance = 150f;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +45,27 @@ public class Player : MonoBehaviour
         Run();
         Jump();
         Dash();
+        RegenMana();
+    }
+
+    private void RegenMana()
+    {
+        if (mpSlider.value < 100)
+        {
+            needsMana = true;
+        }
+
+        if (needsMana)
+        {
+            mpRegenInterval -= Time.deltaTime;
+
+            if (mpRegenInterval <= 0)
+            {
+                mpRegenInterval = 1f;
+                mpSlider.value += 1;
+            }
+        }
+        
     }
 
     void Run()
@@ -81,6 +111,7 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
+        //myAnimator.SetBool("isFalling", !isGrounded);
 
     }
 
@@ -88,9 +119,10 @@ public class Player : MonoBehaviour
     {
         Vector2 dashForce;
 
-        if (Input.GetButton("Fire2") && canDash)
+        if (Input.GetButton("Fire2") && canDash && mpSlider.value >= DASH_MANA_COST)
         {
             canDash = false;
+            mpSlider.value -= DASH_MANA_COST;
             myAnimator.SetBool("Dash", true);
 
             if (!GetComponent<SpriteRenderer>().flipX)
@@ -111,10 +143,8 @@ public class Player : MonoBehaviour
         {
             dashTime -= Time.deltaTime;
             dashCoolDown -= Time.deltaTime;
-            //dashCDImage.fillAmount = ;
+            dashCDImage.fillAmount = -dashCoolDown/3 + 1;
 
-            Debug.Log(dashCoolDown);
-            Debug.Log(dashCDImage.fillAmount);
             if (dashTime <= 0)
             {
                 dashTime = DASH_DURATION;
@@ -125,6 +155,7 @@ public class Player : MonoBehaviour
             {
                 dashCoolDown = 3f;
                 canDash = true;
+                
             }
         }
     }
