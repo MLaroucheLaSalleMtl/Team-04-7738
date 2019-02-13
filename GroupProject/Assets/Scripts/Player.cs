@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -28,7 +29,7 @@ public class Player : MonoBehaviour
     private bool canDash = true;
     private float dashTime;
     private float dashCoolDown = 3f;
-    private float dashDistance = 150f;
+    private float dashDistance = 200f;
 
     // Start is called before the first frame update
     void Start()
@@ -111,8 +112,6 @@ public class Player : MonoBehaviour
             isGrounded = false;
         }
 
-        //myAnimator.SetBool("isFalling", !isGrounded);
-
     }
 
     void Dash()
@@ -157,6 +156,14 @@ public class Player : MonoBehaviour
                 canDash = true;
                 
             }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "Death")
+        {
+            SceneManager.LoadScene("PhilTestLevel");
         }
     }
 }
