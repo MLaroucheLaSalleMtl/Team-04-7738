@@ -163,7 +163,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.name == "Death")
         {
-            SceneManager.LoadScene("PhilTestLevel");
+            Scene currScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
         }
     }
 }
