@@ -7,23 +7,32 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float movementSpeed = 3.5f;
-    [SerializeField] float jumpHeight = 7f;
-    [SerializeField] Image dashCDImage;
-    [SerializeField] Slider mpSlider;
-    [SerializeField] Slider hpSlider;
-
+    //Player
     Rigidbody2D myRigidbody;
     Animator myAnimator;
+    bool canMove = true;
+    float gracePeriod = 0.8f;
+
+    //Movement
+    [SerializeField] float movementSpeed = 3.5f;
 
     //Jump
+    [SerializeField] float jumpHeight = 7f;
+
     private bool isGrounded = true;
-    
+
+    //Health
+    [SerializeField] Slider hpSlider;
+
     //Mana
-    private float mpRegenInterval = 1f;
+    [SerializeField] Slider mpSlider;
+    [SerializeField] float mpRegenInterval = 1f;
+
     private bool needsMana = false;
 
     //Dash
+    [SerializeField] Image dashCDImage;
+
     private const float DASH_DURATION = 0.4f;
     private const int DASH_MANA_COST = 15;
 
@@ -44,9 +53,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Run();
-        Jump();
-        Dash();
+        if (canMove)
+        {
+            Run();
+            Jump();
+            Dash();
+        }
+
+        else
+        {
+            gracePeriod -= Time.deltaTime;
+
+            if (gracePeriod <= 0)
+            {
+                canMove = true;
+                gracePeriod = 0.8f;
+            }
+        }
+
         RegenMana();
     }
 
@@ -160,6 +184,35 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void TakeDamage(int damage)
+    {
+        Vector2 knockback;
+
+        canMove = false;
+
+        hpSlider.value -= damage;
+
+        if (hpSlider.value <= 0)
+        {
+            Scene currScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
+        }
+
+        if (!GetComponent<SpriteRenderer>().flipX)//facing right
+        {
+            knockback = new Vector2(-5000, 5000);
+        }
+
+        else//facing left
+        {
+            knockback = new Vector2(5000, 5000);
+        }
+
+        myRigidbody.velocity = new Vector2(0, 0);
+        myRigidbody.AddForce(knockback);
+
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.name == "Death")
@@ -170,12 +223,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Spike")
         {
-            hpSlider.value -= 10;
-            if (hpSlider.value <= 0)
-            {
-                Scene currScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currScene.name);
-            }
+            TakeDamage(10);
         }
     }
 }
