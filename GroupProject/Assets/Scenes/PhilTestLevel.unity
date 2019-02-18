@@ -7748,7 +7748,7 @@ SpriteRenderer:
   m_Size: {x: 8.5, y: 4.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1085727580
@@ -8413,6 +8413,11 @@ PrefabInstance:
       propertyPath: mpSlider
       value: 
       objectReference: {fileID: 155897026}
+    - target: {fileID: 7501951891626793765, guid: 95c125c6f66edbd4b9eb7b76f102da85,
+        type: 3}
+      propertyPath: hpSlider
+      value: 
+      objectReference: {fileID: 458940451}
     - target: {fileID: 7501951891626793763, guid: 95c125c6f66edbd4b9eb7b76f102da85,
         type: 3}
       propertyPath: m_CollisionDetection

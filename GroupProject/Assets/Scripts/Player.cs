@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] float jumpHeight = 7f;
     [SerializeField] Image dashCDImage;
     [SerializeField] Slider mpSlider;
+    [SerializeField] Slider hpSlider;
 
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -165,6 +166,16 @@ public class Player : MonoBehaviour
         {
             Scene currScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currScene.name);
+        }
+
+        if (collision.gameObject.tag == "Spike")
+        {
+            hpSlider.value -= 10;
+            if (hpSlider.value <= 0)
+            {
+                Scene currScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currScene.name);
+            }
         }
     }
 }
