@@ -236,5 +236,7 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+
+       
     }
 }
