@@ -64,8 +64,19 @@ public class Player : MonoBehaviour
         {
             gracePeriod -= Time.deltaTime;
 
+            if (((int)(gracePeriod * 100) % 2) == 1)
+            {
+                GetComponent<SpriteRenderer>().color = Color.black;
+            }
+
+            else if (((int)(gracePeriod * 100) % 2) == 0)
+            {
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
+
             if (gracePeriod <= 0)
             {
+                GetComponent<SpriteRenderer>().color = Color.white;
                 canMove = true;
                 gracePeriod = 0.8f;
             }
