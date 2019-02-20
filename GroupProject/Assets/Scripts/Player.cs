@@ -258,4 +258,28 @@ public class Player : MonoBehaviour
         }
        
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Death")
+        {
+            Scene currScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
+        }
+
+        else if (collision.gameObject.tag == "Spike")
+        {
+            TakeDamage(10);
+        }
+
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(15);
+        }
+
+        else if (collision.gameObject.tag == "Finish")
+        {
+            code.SetLevelComplete(true);
+        }
+    }
 }
