@@ -234,30 +234,30 @@ public class Player : MonoBehaviour
         canMove = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Death")
-        {
-            Scene currScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currScene.name);
-        }
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Death")
+    //    {
+    //        Scene currScene = SceneManager.GetActiveScene();
+    //        SceneManager.LoadScene(currScene.name);
+    //    }
 
-        else if (collision.gameObject.tag == "Spike")
-        {
-            TakeDamage(10);
-        }
+    //    else if (collision.gameObject.tag == "Spike")
+    //    {
+    //        TakeDamage(10);
+    //    }
 
-        else if (collision.gameObject.tag == "Enemy")
-        {
-            TakeDamage(15);
-        }
+    //    else if (collision.gameObject.tag == "Enemy")
+    //    {
+    //        TakeDamage(15);
+    //    }
 
-        else if (collision.gameObject.tag == "Finish")
-        {
-            code.SetLevelComplete(true);
-        }
+    //    else if (collision.gameObject.tag == "Finish")
+    //    {
+    //        code.SetLevelComplete(true);
+    //    }
        
-    }
+    //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {

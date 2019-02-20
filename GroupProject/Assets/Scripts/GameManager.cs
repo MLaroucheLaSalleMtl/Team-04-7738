@@ -51,7 +51,6 @@ public class GameManager : MonoBehaviour
             async = SceneManager.LoadSceneAsync(levelToLoad);
             levelToLoad++;
             async.allowSceneActivation = false;
-            Debug.Log(count + " " + levelCount);
         }
     }
 
