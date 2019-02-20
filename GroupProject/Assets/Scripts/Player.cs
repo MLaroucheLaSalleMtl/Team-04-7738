@@ -259,7 +259,7 @@ public class Player : MonoBehaviour
        
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Death")
         {
