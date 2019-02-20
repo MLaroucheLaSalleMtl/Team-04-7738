@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
     {
         Vector2 dashForce;
 
-        if (Input.GetButton("Fire2") && canDash && mpSlider.value >= DASH_MANA_COST)
+        if (Input.GetButton("Fire3") && canDash && mpSlider.value >= DASH_MANA_COST)
         {
             canDash = false;
             mpSlider.value -= DASH_MANA_COST;
@@ -199,34 +199,36 @@ public class Player : MonoBehaviour
     {
         Vector2 knockback;
 
+        if (canMove)
+        {
+            hpSlider.value -= damage;
+
+            if (hpSlider.value <= 0)
+            {
+                Scene currScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currScene.name);
+            }
+
+            if (!GetComponent<SpriteRenderer>().flipX)//facing right
+            {
+                knockback = new Vector2(-5000, 5000);
+            }
+
+            else//facing left
+            {
+                knockback = new Vector2(5000, 5000);
+            }
+
+            myRigidbody.velocity = new Vector2(0, 0);
+            myRigidbody.AddForce(knockback);
+        }
+        
         canMove = false;
-
-        hpSlider.value -= damage;
-
-        if (hpSlider.value <= 0)
-        {
-            Scene currScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currScene.name);
-        }
-
-        if (!GetComponent<SpriteRenderer>().flipX)//facing right
-        {
-            knockback = new Vector2(-5000, 5000);
-        }
-
-        else//facing left
-        {
-            knockback = new Vector2(5000, 5000);
-        }
-
-        myRigidbody.velocity = new Vector2(0, 0);
-        myRigidbody.AddForce(knockback);
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Death")
+        if (collision.gameObject.tag == "Death")
         {
             Scene currScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currScene.name);

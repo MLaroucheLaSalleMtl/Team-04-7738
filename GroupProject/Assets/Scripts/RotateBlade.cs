@@ -18,9 +18,9 @@ public class RotateBlade : MonoBehaviour
         this.transform.Rotate(new Vector3(0, 0, rotationSpeed));
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Scene currScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currScene.name);
-    }
+    //private void OnTriggerEnter2D(Collider2D other)
+    //{
+    //    Scene currScene = SceneManager.GetActiveScene();
+    //    SceneManager.LoadScene(currScene.name);
+    //}
 }
