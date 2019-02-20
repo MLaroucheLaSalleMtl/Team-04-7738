@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+    private GameManager code;
+
     //Player
     Rigidbody2D myRigidbody;
     Animator myAnimator;
@@ -48,10 +51,11 @@ public class Player : MonoBehaviour
         myAnimator = GetComponent<Animator>();
 
         dashTime = DASH_DURATION;
+
+        code = FindObjectOfType<GameManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         if (canMove)
         {
@@ -59,8 +63,12 @@ public class Player : MonoBehaviour
             Jump();
             Dash();
         }
+    }
 
-        else
+    // Update is called once per frame
+    void Update()
+    {
+        if(!canMove)
         {
             gracePeriod -= Time.deltaTime;
 
@@ -234,11 +242,20 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(currScene.name);
         }
 
-        if (collision.gameObject.tag == "Spike")
+        else if (collision.gameObject.tag == "Spike")
         {
             TakeDamage(10);
         }
 
+        else if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage(15);
+        }
+
+        else if (collision.gameObject.tag == "Finish")
+        {
+            code.SetLevelComplete(true);
+        }
        
     }
 }
