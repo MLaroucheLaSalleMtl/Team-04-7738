@@ -10772,7 +10772,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &155897024
 GameObject:
@@ -11419,12 +11419,12 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.35, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0, y: 0, z: 1.06, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.84, y: 2.22}
     newSize: {x: 1.84, y: 2.22}
     adaptiveTilingThreshold: 0.5
-    drawMode: 0
+    drawMode: 1
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
@@ -11821,6 +11821,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ghost
       objectReference: {fileID: 0}
+    - target: {fileID: 6594227495337911203, guid: 4105fba16f4634045826a9865485f897,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 6594227495337911204, guid: 4105fba16f4634045826a9865485f897,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12117,6 +12122,36 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1960196916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4511600538515197176}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1960196917}
+  m_Layer: 0
+  m_Name: RotatingBlade (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1960196917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 4511600538515197176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960196916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1963365942
 GameObject:
   m_ObjectHideFlags: 0
@@ -12404,6 +12439,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ghost 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629667229813721924, guid: 92ec3253a47b49f498ee82bcdbbf331d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3629667229813721924, guid: 92ec3253a47b49f498ee82bcdbbf331d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3629667229813721920, guid: 92ec3253a47b49f498ee82bcdbbf331d,
         type: 3}
