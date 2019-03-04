@@ -78,9 +78,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!paused)
+        if (!levelComplete)
         {
-            if (!levelComplete)
+            if (!paused)
             {
                 if (canMove)
                 {
@@ -115,15 +115,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetButtonDown("Cancel"))
+        if (!levelComplete)
         {
-            Pause();
-        }
+            if (Input.GetButtonDown("Cancel"))
+            {
+                Pause();
+            }
 
-        if (!paused)
-        {
-            if (!levelComplete)
+            if (!paused)
             {
                 if (!canMove)
                 {
