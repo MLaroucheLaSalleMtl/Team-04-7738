@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         async = SceneManager.LoadSceneAsync(levelToLoad);
-        levelCount = 5;
+        levelCount = 6;
         score = new int[3];
     }
 
@@ -94,5 +94,11 @@ public class GameManager : MonoBehaviour
     public int GetLevel()
     {
         return levelIndex + 1;
+    }
+
+    public void MainMenu()
+    {
+        Destroy(gameObject);
+        SceneManager.LoadScene(0);
     }
 }

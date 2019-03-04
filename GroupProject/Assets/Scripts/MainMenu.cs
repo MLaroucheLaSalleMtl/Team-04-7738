@@ -5,30 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    private AsyncOperation async;
+    private GameManager code;
 
     void Start()
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        code = FindObjectOfType<GameManager>();
     }
 
     public void PlayGame()
     {
-        if (async == null)
-        {
-            Scene currScene = SceneManager.GetActiveScene();
-            async = SceneManager.LoadSceneAsync(currScene.buildIndex + 1);
-            async.allowSceneActivation = true;
-        }
+        code.SetLevelComplete();
     }
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+        #else
+                Application.Quit();
+        #endif
     }
 }

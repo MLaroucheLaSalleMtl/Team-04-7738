@@ -32,4 +32,9 @@ public class EndScreen : MonoBehaviour
     {
         
     }
+
+    public void MainMenu()
+    {
+        code.MainMenu();
+    }
 }
