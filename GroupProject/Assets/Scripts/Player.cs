@@ -58,12 +58,17 @@ public class Player : MonoBehaviour
     private bool levelComplete = false;
     private int levelCompleteScore = 5000;
 
+    //Menu
+    [SerializeField] GameObject menu;
+    private bool paused = false;
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         scorePanel.gameObject.SetActive(false);
+        menu.gameObject.SetActive(false);
         dashTime = DASH_DURATION;
 
         code = FindObjectOfType<GameManager>();
@@ -73,48 +78,76 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!levelComplete)
+        if (!paused)
         {
-            if (canMove)
+            if (!levelComplete)
             {
-                Run();
-                Jump();
-                Dash();
-            }
+                if (canMove)
+                {
+                    Run();
+                    Jump();
+                    Dash();
+                }
 
-            Timer();
-            RegenMana();
+                Timer();
+                RegenMana();
+            }
         }
+    }
+
+    public void Pause()
+    {
+        if (!paused)
+        {
+            paused = true;
+            Time.timeScale = 0;
+        }
+
+        else
+        {
+            paused = false;
+            Time.timeScale = 1;
+        }
+
+        menu.gameObject.SetActive(paused);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!levelComplete)
+
+        if (Input.GetButtonDown("Cancel"))
         {
-            if (!canMove)
+            Pause();
+        }
+
+        if (!paused)
+        {
+            if (!levelComplete)
             {
-                gracePeriod -= Time.deltaTime;
-
-                if (((int)(gracePeriod * 100) % 2) == 1)
+                if (!canMove)
                 {
-                    GetComponent<SpriteRenderer>().color = Color.black;
-                }
+                    gracePeriod -= Time.deltaTime;
 
-                else if (((int)(gracePeriod * 100) % 2) == 0)
-                {
-                    GetComponent<SpriteRenderer>().color = Color.white;
-                }
+                    if (((int)(gracePeriod * 100) % 2) == 1)
+                    {
+                        GetComponent<SpriteRenderer>().color = Color.black;
+                    }
 
-                if (gracePeriod <= 0)
-                {
-                    GetComponent<SpriteRenderer>().color = Color.white;
-                    canMove = true;
-                    gracePeriod = 0.8f;
+                    else if (((int)(gracePeriod * 100) % 2) == 0)
+                    {
+                        GetComponent<SpriteRenderer>().color = Color.white;
+                    }
+
+                    if (gracePeriod <= 0)
+                    {
+                        GetComponent<SpriteRenderer>().color = Color.white;
+                        canMove = true;
+                        gracePeriod = 0.8f;
+                    }
                 }
             }
         }
-   
     }
 
     private void RegenMana()
@@ -295,8 +328,7 @@ public class Player : MonoBehaviour
         {
             if (collision.gameObject.tag == "Death")
             {
-                Scene currScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currScene.name);
+                Die();
             }
 
             else if (collision.gameObject.tag == "Spike")
@@ -324,8 +356,20 @@ public class Player : MonoBehaviour
                 levelComplete = true;
 
                 code.Invoke("SetLevelComplete", 3);
-                //code.SetLevelComplete(true); //used to get to the next level
             }
         }
+    }
+
+    public void Die()
+    {
+        Time.timeScale = 1;
+        Scene currScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currScene.name);
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        code.MainMenu();
     }
 }
