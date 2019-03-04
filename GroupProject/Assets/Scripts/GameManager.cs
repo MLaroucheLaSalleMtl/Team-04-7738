@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,13 +13,16 @@ public class GameManager : MonoBehaviour
     private bool levelComplete = true;
     private int count = 0;
     private Scene currScene;
+    private int levelIndex = 0;
+    private int[] score;
 
     // Start is called before the first frame update
     void Start()
     {
         DontDestroyOnLoad(gameObject);
         async = SceneManager.LoadSceneAsync(levelToLoad);
-        levelCount = SceneManager.sceneCount;
+        levelCount = 5;
+        score = new int[3];
     }
 
     // Update is called once per frame
@@ -32,7 +36,7 @@ public class GameManager : MonoBehaviour
             loading = true;
         }
 
-        if (currScene.name != "PhilTestLevel 3")
+        if (currScene.name != "End")
         {
             if (async.progress >= 0.89f && levelComplete)
             {
@@ -45,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        if (async != null && count < levelCount)
+        if (async != null && count < levelCount - 1)
         {
             count++;
             async = SceneManager.LoadSceneAsync(levelToLoad);
@@ -54,8 +58,41 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetLevelComplete(bool status)
+    public void SetLevelComplete()
     {
-        levelComplete = status;
+        levelComplete = true;
+    }
+
+    public void SaveScore(int score)
+    {
+        this.score[levelIndex] = score;
+        levelIndex++;
+    }
+
+    public int GetScore()
+    {
+        int totalScore = 0;
+
+        if (levelIndex != 0)
+        {
+            for (int i = 0; i < levelIndex; i++)
+            {
+                if (score[i] > 0)
+                {
+                    totalScore += score[i];
+                }
+            }
+        }
+        return totalScore;
+    }
+
+    public int[] GetAllScores()
+    {
+        return score;
+    }
+
+    public int GetLevel()
+    {
+        return levelIndex + 1;
     }
 }

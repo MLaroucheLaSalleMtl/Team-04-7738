@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Loading.unity
+    path: Assets/Scenes/Final Scenes/Loading.unity
     guid: 8ea6bcf90348bea4d8686206d53d93d0
   - enabled: 1
-    path: Assets/Scenes/Level 1.unity
-    guid: 57affde75e187e74fa9735f7c059b7ff
+    path: Assets/Scenes/Level 1 Phil Test.unity
+    guid: fb1f019092f13db4cbdef3bd54754ac6
   - enabled: 1
-    path: Assets/Scenes/PhilTestLevel 3.unity
-    guid: fcfdd6e2dd9211a4196dd875fdfbb7a1
+    path: Assets/Scenes/Level 1 Phil Test 1.unity
+    guid: 3880b4c47e302c040afd6a80fc2c137f
+  - enabled: 1
+    path: Assets/Scenes/Level 1 Phil Test 2.unity
+    guid: 80321c8f26c782341820e99850174289
+  - enabled: 1
+    path: Assets/Scenes/Final Scenes/End.unity
+    guid: 0c6f36c3bb1fb2642ac8facfce34bc45
   m_configObjects: {}

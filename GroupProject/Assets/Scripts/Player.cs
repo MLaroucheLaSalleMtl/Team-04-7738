@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private GameManager code;
 
     //Player
+    [SerializeField] Text playerScore;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     bool canMove = true;
@@ -44,53 +45,76 @@ public class Player : MonoBehaviour
     private float dashCoolDown = 3f;
     private float dashDistance = 200f;
 
+    //Timer
+    [SerializeField] private Text timerText;
+    private float timer = 0;
+
+    //Level
+    private const int TIME_PENALTY = -25;
+    private const int DAMAGE_PENALTY = -5;
+    [SerializeField] GameObject scorePanel;
+    [SerializeField] Text scoreText;
+    [SerializeField] Text levelText;
+    private bool levelComplete = false;
+    private int levelCompleteScore = 5000;
+
     // Start is called before the first frame update
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
-
+        scorePanel.gameObject.SetActive(false);
         dashTime = DASH_DURATION;
 
         code = FindObjectOfType<GameManager>();
+        playerScore.text = "SCORE: " + code.GetScore().ToString("D5");
+        levelText.text = $"LEVEL\n {code.GetLevel()}";
     }
 
     private void FixedUpdate()
     {
-        if (canMove)
+        if (!levelComplete)
         {
-            Run();
-            Jump();
-            Dash();
+            if (canMove)
+            {
+                Run();
+                Jump();
+                Dash();
+            }
+
+            Timer();
+            RegenMana();
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!canMove)
+        if (!levelComplete)
         {
-            gracePeriod -= Time.deltaTime;
-
-            if (((int)(gracePeriod * 100) % 2) == 1)
+            if (!canMove)
             {
-                GetComponent<SpriteRenderer>().color = Color.black;
-            }
+                gracePeriod -= Time.deltaTime;
 
-            else if (((int)(gracePeriod * 100) % 2) == 0)
-            {
-                GetComponent<SpriteRenderer>().color = Color.white;
-            }
+                if (((int)(gracePeriod * 100) % 2) == 1)
+                {
+                    GetComponent<SpriteRenderer>().color = Color.black;
+                }
 
-            if (gracePeriod <= 0)
-            {
-                GetComponent<SpriteRenderer>().color = Color.white;
-                canMove = true;
-                gracePeriod = 0.8f;
+                else if (((int)(gracePeriod * 100) % 2) == 0)
+                {
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                }
+
+                if (gracePeriod <= 0)
+                {
+                    GetComponent<SpriteRenderer>().color = Color.white;
+                    canMove = true;
+                    gracePeriod = 0.8f;
+                }
             }
         }
-
-        RegenMana();
+   
     }
 
     private void RegenMana()
@@ -234,6 +258,12 @@ public class Player : MonoBehaviour
         canMove = false;
     }
 
+    void Timer()
+    {
+        timer += Time.deltaTime;
+        timerText.text = ((int)timer).ToString("D3");
+    }
+
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
     //    if (collision.gameObject.tag == "Death")
@@ -256,30 +286,46 @@ public class Player : MonoBehaviour
     //    {
     //        code.SetLevelComplete(true);
     //    }
-       
+
     //}
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Death")
+        if(!levelComplete)
         {
-            Scene currScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currScene.name);
-        }
+            if (collision.gameObject.tag == "Death")
+            {
+                Scene currScene = SceneManager.GetActiveScene();
+                SceneManager.LoadScene(currScene.name);
+            }
 
-        else if (collision.gameObject.tag == "Spike")
-        {
-            TakeDamage(10);
-        }
+            else if (collision.gameObject.tag == "Spike")
+            {
+                TakeDamage(10);
+            }
 
-        else if (collision.gameObject.tag == "Enemy")
-        {
-            TakeDamage(15);
-        }
+            else if (collision.gameObject.tag == "Enemy")
+            {
+                TakeDamage(15);
+            }
 
-        else if (collision.gameObject.tag == "Finish")
-        {
-            code.SetLevelComplete(true);
+            else if (collision.gameObject.tag == "Finish")
+            {
+                int score = levelCompleteScore + (int)((int)timer * TIME_PENALTY + (100 - hpSlider.value) * DAMAGE_PENALTY);
+
+                myAnimator.SetBool("isWalking", false);
+                myRigidbody.velocity = new Vector2(0, 0);
+                code.SaveScore(score);
+                scorePanel.gameObject.SetActive(true);
+                scoreText.text = $"TIME PENALTY: {(int)timer} x {TIME_PENALTY} = {(int)timer * TIME_PENALTY}\n" +
+                                 $"DAMAGE PENALTY: {100 - hpSlider.value} x {DAMAGE_PENALTY} = {(100 - hpSlider.value) * DAMAGE_PENALTY}\n" +
+                                 $"SCORE = {score}\n" +
+                                 $"TOTAL SCORE = {code.GetScore()}";
+                levelComplete = true;
+
+                code.Invoke("SetLevelComplete", 3);
+                //code.SetLevelComplete(true); //used to get to the next level
+            }
         }
     }
 }
