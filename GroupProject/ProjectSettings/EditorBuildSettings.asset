@@ -16,10 +16,10 @@ EditorBuildSettings:
     guid: fb1f019092f13db4cbdef3bd54754ac6
   - enabled: 1
     path: Assets/Scenes/Level 1 Phil Test 1.unity
-    guid: 3880b4c47e302c040afd6a80fc2c137f
+    guid: 11953988107942c48bd021162a7377a6
   - enabled: 1
     path: Assets/Scenes/Level 1 Phil Test 2.unity
-    guid: 80321c8f26c782341820e99850174289
+    guid: 471c7b6700d779e43a5db99b56a5f8e4
   - enabled: 1
     path: Assets/Scenes/Final Scenes/End.unity
     guid: 0c6f36c3bb1fb2642ac8facfce34bc45
