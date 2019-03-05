@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Main Menu.unity
     guid: 796303fb07b7f474c8610cdb2d6def36
   - enabled: 1
-    path: Assets/Scenes/Level 1 Phil Test.unity
-    guid: fb1f019092f13db4cbdef3bd54754ac6
+    path: Assets/Scenes/Final Scenes/Level 1.unity
+    guid: e295af6bea5fbe44d910a7191dc8689f
   - enabled: 1
-    path: Assets/Scenes/Level 1 Phil Test 1.unity
-    guid: 11953988107942c48bd021162a7377a6
+    path: Assets/Scenes/Final Scenes/Level 2.unity
+    guid: 05041fc68c6898947a3269780207dcd6
   - enabled: 1
-    path: Assets/Scenes/Level 1 Phil Test 2.unity
-    guid: 471c7b6700d779e43a5db99b56a5f8e4
+    path: Assets/Scenes/Final Scenes/Level 3.unity
+    guid: 501b0f885f244b74f8a5be252a7e81b0
   - enabled: 1
     path: Assets/Scenes/Final Scenes/End.unity
     guid: 0c6f36c3bb1fb2642ac8facfce34bc45

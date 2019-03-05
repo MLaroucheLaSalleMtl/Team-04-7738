@@ -7,8 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-
+    //GameManager
     private GameManager code;
+
+    //SFX
+    [SerializeField] AudioClip[] sounds;
+    AudioSource myAudio;
+    private float footstepAudioPlayRate = 0.4f;
 
     //Player
     [SerializeField] Text playerScore;
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
     {
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myAudio = GetComponent<AudioSource>();
         scorePanel.gameObject.SetActive(false);
         menu.gameObject.SetActive(false);
         dashTime = DASH_DURATION;
@@ -184,6 +190,15 @@ public class Player : MonoBehaviour
         {
             myAnimator.SetBool("isWalking", true);
             GetComponent<SpriteRenderer>().flipX = !facingRight;
+
+            footstepAudioPlayRate -= Time.deltaTime;
+
+            if (footstepAudioPlayRate <= 0 && isGrounded)
+            {
+                myAudio.clip = sounds[0];
+                myAudio.Play();
+                footstepAudioPlayRate = 0.4f;
+            }
         }
 
         else
@@ -199,6 +214,8 @@ public class Player : MonoBehaviour
             Vector2 jumpForce = new Vector2(myRigidbody.velocity.x, jumpHeight);
             myRigidbody.velocity = jumpForce;
             myAnimator.SetBool("Jump", true);
+            myAudio.clip = sounds[1];
+            myAudio.Play();
         }
 
         if (myRigidbody.velocity.y == 0)
@@ -223,7 +240,8 @@ public class Player : MonoBehaviour
             canDash = false;
             mpSlider.value -= DASH_MANA_COST;
             myAnimator.SetBool("Dash", true);
-
+            myAudio.clip = sounds[2];
+            myAudio.Play();
             if (!GetComponent<SpriteRenderer>().flipX)
             {
                 dashForce = new Vector2(myRigidbody.velocity.x + dashDistance, myRigidbody.velocity.y);
@@ -265,12 +283,13 @@ public class Player : MonoBehaviour
 
         if (canMove)
         {
+            myAudio.clip = sounds[3];
+            myAudio.Play();
             hpSlider.value -= damage;
 
             if (hpSlider.value <= 0)
             {
-                Scene currScene = SceneManager.GetActiveScene();
-                SceneManager.LoadScene(currScene.name);
+                Die();
             }
 
             if (!GetComponent<SpriteRenderer>().flipX)//facing right
