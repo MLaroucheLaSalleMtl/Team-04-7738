@@ -121,6 +121,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            LevelComplete();
+        }
+
         if (!levelComplete)
         {
             if (Input.GetButtonDown("Cancel"))
@@ -279,34 +284,37 @@ public class Player : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        Vector2 knockback;
-
-        if (canMove)
+        if (!levelComplete)
         {
-            myAudio.clip = sounds[3];
-            myAudio.Play();
-            hpSlider.value -= damage;
+            Vector2 knockback;
 
-            if (hpSlider.value <= 0)
+            if (canMove)
             {
-                Die();
+                myAudio.clip = sounds[3];
+                myAudio.Play();
+                hpSlider.value -= damage;
+
+                if (hpSlider.value <= 0)
+                {
+                    Die();
+                }
+
+                if (!GetComponent<SpriteRenderer>().flipX)//facing right
+                {
+                    knockback = new Vector2(-5000, 5000);
+                }
+
+                else//facing left
+                {
+                    knockback = new Vector2(5000, 5000);
+                }
+
+                myRigidbody.velocity = new Vector2(0, 0);
+                myRigidbody.AddForce(knockback);
             }
 
-            if (!GetComponent<SpriteRenderer>().flipX)//facing right
-            {
-                knockback = new Vector2(-5000, 5000);
-            }
-
-            else//facing left
-            {
-                knockback = new Vector2(5000, 5000);
-            }
-
-            myRigidbody.velocity = new Vector2(0, 0);
-            myRigidbody.AddForce(knockback);
+            canMove = false;
         }
-        
-        canMove = false;
     }
 
     void Timer()
@@ -361,33 +369,42 @@ public class Player : MonoBehaviour
 
             else if (collision.gameObject.tag == "Finish")
             {
-                int score = levelCompleteScore + (int)((int)timer * TIME_PENALTY + (100 - hpSlider.value) * DAMAGE_PENALTY);
-
-                myAnimator.SetBool("isWalking", false);
-                myRigidbody.velocity = new Vector2(0, 0);
-                code.SaveScore(score);
-                scorePanel.gameObject.SetActive(true);
-                scoreText.text = $"TIME PENALTY: {(int)timer} x {TIME_PENALTY} = {(int)timer * TIME_PENALTY}\n" +
-                                 $"DAMAGE PENALTY: {100 - hpSlider.value} x {DAMAGE_PENALTY} = {(100 - hpSlider.value) * DAMAGE_PENALTY}\n" +
-                                 $"SCORE = {score}\n" +
-                                 $"TOTAL SCORE = {code.GetScore()}";
-                levelComplete = true;
-
-                code.Invoke("SetLevelComplete", 3);
+                LevelComplete();
             }
         }
     }
 
     public void Die()
     {
-        Time.timeScale = 1;
-        Scene currScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(currScene.name);
+        if(!levelComplete)
+        {
+            Time.timeScale = 1;
+            Scene currScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
+
+        }
     }
 
     public void Quit()
     {
         Time.timeScale = 1;
         code.MainMenu();
+    }
+
+    private void LevelComplete()
+    {
+        int score = levelCompleteScore + (int)((int)timer * TIME_PENALTY + (100 - hpSlider.value) * DAMAGE_PENALTY);
+
+        myAnimator.SetBool("isWalking", false);
+        myRigidbody.velocity = new Vector2(0, 0);
+        code.SaveScore(score);
+        scorePanel.gameObject.SetActive(true);
+        scoreText.text = $"TIME PENALTY: {(int)timer} x {TIME_PENALTY} = {(int)timer * TIME_PENALTY}\n" +
+                         $"DAMAGE PENALTY: {100 - hpSlider.value} x {DAMAGE_PENALTY} = {(100 - hpSlider.value) * DAMAGE_PENALTY}\n" +
+                         $"SCORE = {score}\n" +
+                         $"TOTAL SCORE = {code.GetScore()}";
+        levelComplete = true;
+
+        code.Invoke("SetLevelComplete", 4);
     }
 }
