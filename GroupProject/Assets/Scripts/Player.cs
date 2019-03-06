@@ -60,9 +60,10 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject scorePanel;
     [SerializeField] Text scoreText;
     [SerializeField] Text levelText;
-    private bool levelComplete = false;
+    private bool levelComplete;
     private int levelCompleteScore = 5000;
-
+    private float levelEndTimer;
+    
     //Menu
     [SerializeField] GameObject menu;
     private bool paused = false;
@@ -80,6 +81,8 @@ public class Player : MonoBehaviour
         code = FindObjectOfType<GameManager>();
         playerScore.text = "SCORE: " + code.GetScore().ToString("D5");
         levelText.text = $"LEVEL\n {code.GetLevel()}";
+        levelComplete = false;
+        levelEndTimer = 4;
     }
 
     private void FixedUpdate()
@@ -98,6 +101,22 @@ public class Player : MonoBehaviour
                 Timer();
                 RegenMana();
             }
+        }
+
+        else
+        {
+            //if(Input.GetButtonDown("Jump"))
+            //{
+            //    code.SetLevelComplete();
+            //}
+
+            levelEndTimer -= Time.deltaTime;
+
+            if (levelEndTimer <= 0)
+            {
+                code.SetLevelComplete();
+            }
+            
         }
     }
 
@@ -405,6 +424,6 @@ public class Player : MonoBehaviour
                          $"TOTAL SCORE = {code.GetScore()}";
         levelComplete = true;
 
-        code.Invoke("SetLevelComplete", 4);
+        //code.Invoke("SetLevelComplete", 4);
     }
 }
