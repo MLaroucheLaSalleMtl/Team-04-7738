@@ -102,22 +102,6 @@ public class Player : MonoBehaviour
                 RegenMana();
             }
         }
-
-        else
-        {
-            if (Input.GetButtonDown("Jump"))
-            {
-                code.SetLevelComplete();
-            }
-
-            //levelEndTimer -= Time.deltaTime;
-
-            //if (levelEndTimer <= 0)
-            //{
-            //    code.SetLevelComplete();
-            //}
-
-        }
     }
 
     public void Pause()
@@ -176,6 +160,22 @@ public class Player : MonoBehaviour
                     }
                 }
             }
+        }
+
+        else
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                code.SetLevelComplete();
+            }
+
+            //levelEndTimer -= Time.deltaTime;
+
+            //if (levelEndTimer <= 0)
+            //{
+            //    code.SetLevelComplete();
+            //}
+
         }
     }
 
