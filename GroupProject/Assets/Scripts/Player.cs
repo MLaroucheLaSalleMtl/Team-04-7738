@@ -105,18 +105,18 @@ public class Player : MonoBehaviour
 
         else
         {
-            //if(Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
+            {
+                code.SetLevelComplete();
+            }
+
+            //levelEndTimer -= Time.deltaTime;
+
+            //if (levelEndTimer <= 0)
             //{
             //    code.SetLevelComplete();
             //}
 
-            levelEndTimer -= Time.deltaTime;
-
-            if (levelEndTimer <= 0)
-            {
-                code.SetLevelComplete();
-            }
-            
         }
     }
 
