@@ -11029,7 +11029,7 @@ PrefabInstance:
     - target: {fileID: 9136294684811990161, guid: 2ddbbb8ab809b5141bdee37410aae600,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9136294684811990167, guid: 2ddbbb8ab809b5141bdee37410aae600,
         type: 3}
@@ -14248,6 +14248,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3485466702337177739, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3485466702337177743, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14780,6 +14785,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7501951891626793763, guid: 95c125c6f66edbd4b9eb7b76f102da85,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7501951891626793761, guid: 95c125c6f66edbd4b9eb7b76f102da85,
         type: 3}
       propertyPath: m_Color.r
@@ -14795,9 +14805,9 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7501951891626793763, guid: 95c125c6f66edbd4b9eb7b76f102da85,
+    - target: {fileID: 7501951891626793761, guid: 95c125c6f66edbd4b9eb7b76f102da85,
         type: 3}
-      propertyPath: m_CollisionDetection
+      propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
