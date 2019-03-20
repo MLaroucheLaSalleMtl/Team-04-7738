@@ -27,7 +27,6 @@ public class Player : MonoBehaviour
 
     //Jump
     [SerializeField] float jumpHeight = 7f;
-
     private bool isGrounded = true;
 
     //Health
@@ -41,14 +40,15 @@ public class Player : MonoBehaviour
 
     //Dash
     [SerializeField] Image dashCDImage;
-
+    Vector2 dashForce;
     private const float DASH_DURATION = 0.4f;
     private const int DASH_MANA_COST = 15;
-
+    private bool isDashing;
     private bool canDash = true;
     private float dashTime;
     private float dashCoolDown = 3f;
     private float dashDistance = 200f;
+    private int dashTicks = 20;
 
     //Timer
     [SerializeField] private Text timerText;
@@ -121,7 +121,7 @@ public class Player : MonoBehaviour
         menu.gameObject.SetActive(paused);
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.P))
@@ -256,9 +256,7 @@ public class Player : MonoBehaviour
     }
 
     void Dash()
-    {
-        Vector2 dashForce;
-
+    { 
         if (Input.GetButton("Fire3") && canDash && mpSlider.value >= DASH_MANA_COST)
         {
             canDash = false;
@@ -266,18 +264,34 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("Dash", true);
             myAudio.clip = sounds[2];
             myAudio.Play();
+            isDashing = true;
+
             if (!GetComponent<SpriteRenderer>().flipX)
             {
-                dashForce = new Vector2(myRigidbody.velocity.x + dashDistance, myRigidbody.velocity.y);
-                
+                dashForce = new Vector2(/*myRigidbody.velocity.x*/ + dashDistance, /*myRigidbody.velocity.y*/0);
             }
 
             else
             {
-                dashForce = new Vector2(myRigidbody.velocity.x - dashDistance, myRigidbody.velocity.y);
+                dashForce = new Vector2(/*myRigidbody.velocity.x*/ - dashDistance, /*myRigidbody.velocity.y*/0);
             }
 
-            myRigidbody.velocity = dashForce;
+            myRigidbody.velocity = new Vector2(0, 0);
+            //myRigidbody.velocity = dashForce;
+            ////myRigidbody.AddForce(dashForce*500);
+        }
+
+        if (isDashing)
+        {
+            myRigidbody.velocity = (dashForce/20);
+
+            dashTicks--;
+
+            if (dashTicks <= 0)
+            {
+                isDashing = false;
+                dashTicks = 20;
+            }
         }
 
         if (!canDash)
@@ -296,7 +310,6 @@ public class Player : MonoBehaviour
             {
                 dashCoolDown = 3f;
                 canDash = true;
-                
             }
         }
     }
