@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1963365945
 Transform:
   m_ObjectHideFlags: 0
@@ -338,18 +338,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3b4803d65a15eb0418f74595a3841ee7, type: 3}
   - {fileID: 8300000, guid: ddccbf0f358dab14a9d6f63f2edba489, type: 3}
   - {fileID: 8300000, guid: 7d368f1f1217dcd4fb357eb3f2d3bb15, type: 3}
-  playerScore: {fileID: 0}
   movementSpeed: 3.5
   jumpHeight: 7
-  hpSlider: {fileID: 0}
-  mpSlider: {fileID: 0}
   mpRegenInterval: 1
-  dashCDImage: {fileID: 0}
-  timerText: {fileID: 0}
-  scorePanel: {fileID: 0}
-  scoreText: {fileID: 0}
-  levelText: {fileID: 0}
-  menu: {fileID: 0}
 --- !u!82 &1713214056
 AudioSource:
   m_ObjectHideFlags: 0

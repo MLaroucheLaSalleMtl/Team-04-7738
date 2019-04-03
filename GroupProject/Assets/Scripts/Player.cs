@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     //GameManager
     private GameManager code;
+    private LevelManager level;
+    private Husk myHusk;
 
     //SFX
     [SerializeField] AudioClip[] sounds;
@@ -16,7 +18,7 @@ public class Player : MonoBehaviour
     private float footstepAudioPlayRate = 0.4f;
 
     //Player
-    [SerializeField] Text playerScore;
+    //[SerializeField] Text playerScore;
     Rigidbody2D myRigidbody;
     Animator myAnimator;
     bool canMove = true;
@@ -24,49 +26,50 @@ public class Player : MonoBehaviour
 
     //Movement
     [SerializeField] float movementSpeed = 3.5f;
+    bool facingRight;
 
     //Jump
     [SerializeField] float jumpHeight = 7f;
     private bool isGrounded = true;
 
     //Health
-    [SerializeField] Slider hpSlider;
+    //[SerializeField] Slider hpSlider;
 
     //Mana
-    [SerializeField] Slider mpSlider;
+    //[SerializeField] Slider mpSlider;
     [SerializeField] float mpRegenInterval = 1f;
-
     private bool needsMana = false;
 
     //Dash
-    [SerializeField] Image dashCDImage;
+    //[SerializeField] Image dashCDImage;
     Vector2 dashForce;
     private const float DASH_DURATION = 0.4f;
     private const int DASH_MANA_COST = 15;
     private bool isDashing;
     private bool canDash = true;
     private float dashTime;
-    private float dashCoolDown = 3f;
+    private float dashCoolDown = 2.0f;
     private float dashDistance = 200f;
     private int dashTicks = 20;
 
     //Timer
-    [SerializeField] private Text timerText;
-    private float timer = 0;
+    //[SerializeField] private Text timerText;
+    //private float timer = 0;
 
     //Level
-    private const int TIME_PENALTY = -25;
-    private const int DAMAGE_PENALTY = -5;
-    [SerializeField] GameObject scorePanel;
-    [SerializeField] Text scoreText;
-    [SerializeField] Text levelText;
-    private bool levelComplete;
-    private int levelCompleteScore = 5000;
-    private float levelEndTimer;
-    
+    bool sentToNextLevel = false;
+    //private const int TIME_PENALTY = -25;
+    //private const int DAMAGE_PENALTY = -5;
+    //[SerializeField] GameObject scorePanel;
+    //[SerializeField] Text scoreText;
+    //[SerializeField] Text levelText;
+    //private bool levelComplete;
+    //private int levelCompleteScore = 5000;
+    //private float levelEndTimer;
+
     //Menu
-    [SerializeField] GameObject menu;
-    private bool paused = false;
+    //[SerializeField] GameObject menu;
+    //private bool paused = false;
 
     // Start is called before the first frame update
     void Start()
@@ -74,22 +77,19 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myAudio = GetComponent<AudioSource>();
-        scorePanel.gameObject.SetActive(false);
-        menu.gameObject.SetActive(false);
+        
         dashTime = DASH_DURATION;
 
         code = FindObjectOfType<GameManager>();
-        playerScore.text = "SCORE: " + code.GetScore().ToString("D5");
-        levelText.text = $"LEVEL\n {code.GetLevel()}";
-        levelComplete = false;
-        levelEndTimer = 4;
+        level = FindObjectOfType<LevelManager>();
+        myHusk = FindObjectOfType<Husk>();
     }
 
     private void FixedUpdate()
     {
-        if (!levelComplete)
+        if (!level.LevelComplete())
         {
-            if (!paused)
+            if (!level.Paused())
             {
                 if (canMove)
                 {
@@ -98,45 +98,31 @@ public class Player : MonoBehaviour
                     Dash();
                 }
 
-                Timer();
                 RegenMana();
             }
         }
     }
 
-    public void Pause()
-    {
-        if (!paused)
-        {
-            paused = true;
-            Time.timeScale = 0;
-        }
-
-        else
-        {
-            paused = false;
-            Time.timeScale = 1;
-        }
-
-        menu.gameObject.SetActive(paused);
-    }
+    
 
     //Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetButtonDown("SwapForm"))
         {
-            LevelComplete();
+            SwapCharacters();
+            //Destroy(gameObject);
+            //level.LevelEnd();
         }
 
-        if (!levelComplete)
+        if (!level.LevelComplete())
         {
             if (Input.GetButtonDown("Cancel"))
             {
-                Pause();
+                level.Pause();
             }
 
-            if (!paused)
+            if (!level.Paused())
             {
                 if (!canMove)
                 {
@@ -164,8 +150,9 @@ public class Player : MonoBehaviour
 
         else
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && !sentToNextLevel)
             {
+                sentToNextLevel = true;
                 code.SetLevelComplete();
             }
 
@@ -181,7 +168,7 @@ public class Player : MonoBehaviour
 
     private void RegenMana()
     {
-        if (mpSlider.value < 100)
+        if (level.MpSlider.value < 100)
         {
             needsMana = true;
         }
@@ -193,15 +180,14 @@ public class Player : MonoBehaviour
             if (mpRegenInterval <= 0)
             {
                 mpRegenInterval = 1f;
-                mpSlider.value += 1;
+                level.MpSlider.value += 1;
             }
         }
-        
+
     }
 
     void Run()
     {
-        bool facingRight = true;
 
         float movement = Input.GetAxis("Horizontal");//value between -1 to 1
         Vector2 playerVelocity = new Vector2(movement * movementSpeed, myRigidbody.velocity.y);
@@ -256,11 +242,11 @@ public class Player : MonoBehaviour
     }
 
     void Dash()
-    { 
-        if (Input.GetButton("Fire3") && canDash && mpSlider.value >= DASH_MANA_COST)
+    {
+        if (Input.GetButton("Fire3") && canDash && level.MpSlider.value >= DASH_MANA_COST)
         {
             canDash = false;
-            mpSlider.value -= DASH_MANA_COST;
+            level.MpSlider.value -= DASH_MANA_COST;
             myAnimator.SetBool("Dash", true);
             myAudio.clip = sounds[2];
             myAudio.Play();
@@ -268,12 +254,12 @@ public class Player : MonoBehaviour
 
             if (!GetComponent<SpriteRenderer>().flipX)
             {
-                dashForce = new Vector2(/*myRigidbody.velocity.x*/ + dashDistance, /*myRigidbody.velocity.y*/0);
+                dashForce = new Vector2(/*myRigidbody.velocity.x*/ +dashDistance, /*myRigidbody.velocity.y*/0);
             }
 
             else
             {
-                dashForce = new Vector2(/*myRigidbody.velocity.x*/ - dashDistance, /*myRigidbody.velocity.y*/0);
+                dashForce = new Vector2(/*myRigidbody.velocity.x*/ -dashDistance, /*myRigidbody.velocity.y*/0);
             }
 
             myRigidbody.velocity = new Vector2(0, 0);
@@ -283,7 +269,7 @@ public class Player : MonoBehaviour
 
         if (isDashing)
         {
-            myRigidbody.velocity = (dashForce/20);
+            myRigidbody.velocity = (dashForce / 20);
 
             dashTicks--;
 
@@ -298,7 +284,7 @@ public class Player : MonoBehaviour
         {
             dashTime -= Time.deltaTime;
             dashCoolDown -= Time.deltaTime;
-            dashCDImage.fillAmount = -dashCoolDown/3 + 1;
+            level.DashCDImage.fillAmount = -dashCoolDown / 2.0f + 1;
 
             if (dashTime <= 0)
             {
@@ -308,7 +294,7 @@ public class Player : MonoBehaviour
 
             if (dashCoolDown <= 0)
             {
-                dashCoolDown = 3f;
+                dashCoolDown = 2.0f;
                 canDash = true;
             }
         }
@@ -316,7 +302,7 @@ public class Player : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
-        if (!levelComplete)
+        if (!level.LevelComplete())
         {
             Vector2 knockback;
 
@@ -324,9 +310,9 @@ public class Player : MonoBehaviour
             {
                 myAudio.clip = sounds[3];
                 myAudio.Play();
-                hpSlider.value -= damage;
+                level.HpSlider.value -= damage;
 
-                if (hpSlider.value <= 0)
+                if (level.HpSlider.value <= 0)
                 {
                     Die();
                 }
@@ -347,12 +333,6 @@ public class Player : MonoBehaviour
 
             canMove = false;
         }
-    }
-
-    void Timer()
-    {
-        timer += Time.deltaTime;
-        timerText.text = ((int)timer).ToString("D3");
     }
 
     //private void OnTriggerEnter2D(Collider2D collision)
@@ -382,38 +362,42 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if(!levelComplete)
+        if (!level.LevelComplete())
         {
-            if (collision.gameObject.tag == "Death")
+            if (!isDashing)
             {
-                Die();
-            }
+                if (collision.gameObject.tag == "Death")
+                {
+                    Die();
+                }
 
-            else if (collision.gameObject.tag == "Spike")
-            {
-                TakeDamage(10);
-            }
+                else if (collision.gameObject.tag == "Spike")
+                {
+                    TakeDamage(10);
+                }
 
-            else if (collision.gameObject.tag == "Enemy")
-            {
-                TakeDamage(15);
-            }
+                else if (collision.gameObject.tag == "Enemy")
+                {
+                    TakeDamage(15);
+                }
 
-            else if (collision.gameObject.tag == "Finish")
-            {
-                LevelComplete();
+                else if (collision.gameObject.tag == "Finish")
+                {
+                    myAnimator.SetBool("isWalking", false);
+                    myRigidbody.velocity = new Vector2(0, 0);
+                    level.LevelEnd();
+                }
             }
         }
     }
 
     public void Die()
     {
-        if(!levelComplete)
+        if (!level.LevelComplete())
         {
             Time.timeScale = 1;
             Scene currScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currScene.name);
-
         }
     }
 
@@ -423,20 +407,30 @@ public class Player : MonoBehaviour
         code.MainMenu();
     }
 
-    private void LevelComplete()
+    private void SwapCharacters()
     {
-        int score = levelCompleteScore + (int)((int)timer * TIME_PENALTY + (100 - hpSlider.value) * DAMAGE_PENALTY);
-
-        myAnimator.SetBool("isWalking", false);
-        myRigidbody.velocity = new Vector2(0, 0);
-        code.SaveScore(score);
-        scorePanel.gameObject.SetActive(true);
-        scoreText.text = $"TIME PENALTY: {(int)timer} x {TIME_PENALTY} = {(int)timer * TIME_PENALTY}\n" +
-                         $"DAMAGE PENALTY: {100 - hpSlider.value} x {DAMAGE_PENALTY} = {(100 - hpSlider.value) * DAMAGE_PENALTY}\n" +
-                         $"SCORE = {score}\n" +
-                         $"TOTAL SCORE = {code.GetScore()}";
-        levelComplete = true;
-
-        //code.Invoke("SetLevelComplete", 4);
+        if (isGrounded && canDash)
+        {
+            myHusk.SwapCharacters(this, GetComponent<SpriteRenderer>().flipX);
+            level.DashCDImage.fillAmount = 100;
+            Destroy(gameObject);
+        }
     }
+
+    //private void LevelComplete()
+    //{
+    //    int score = levelCompleteScore + (int)((int)timer * TIME_PENALTY + (100 - hpSlider.value) * DAMAGE_PENALTY);
+
+    //    myAnimator.SetBool("isWalking", false);
+    //    myRigidbody.velocity = new Vector2(0, 0);
+    //    code.SaveScore(score);
+    //    scorePanel.gameObject.SetActive(true);
+    //    scoreText.text = $"TIME PENALTY: {(int)timer} x {TIME_PENALTY} = {(int)timer * TIME_PENALTY}\n" +
+    //                     $"DAMAGE PENALTY: {100 - hpSlider.value} x {DAMAGE_PENALTY} = {(100 - hpSlider.value) * DAMAGE_PENALTY}\n" +
+    //                     $"SCORE = {score}\n" +
+    //                     $"TOTAL SCORE = {code.GetScore()}";
+    //    levelComplete = true;
+
+    //    //code.Invoke("SetLevelComplete", 4);
+    //}
 }

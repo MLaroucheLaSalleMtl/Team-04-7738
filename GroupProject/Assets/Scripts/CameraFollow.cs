@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] Player player;
+    [SerializeField] GameObject player;
 
     private float followSpeed;
     private Vector3 vel;
