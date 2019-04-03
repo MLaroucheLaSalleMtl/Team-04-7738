@@ -415,12 +415,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Quit()
-    {
-        Time.timeScale = 1;
-        code.MainMenu();
-    }
-
     private void SwapCharacters()
     {
         if (isGrounded && canDash)
