@@ -391,6 +391,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!level.LevelComplete())
+        {
+            if (!isDashing)
+            {
+                if (collision.gameObject.tag == "Fireball")
+                {
+                    TakeDamage(20);
+                }
+            }
+        }
+    }
+
     public void Die()
     {
         if (!level.LevelComplete())
