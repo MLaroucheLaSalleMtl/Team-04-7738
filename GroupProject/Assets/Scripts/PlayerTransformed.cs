@@ -255,13 +255,10 @@ public class PlayerTransformed : MonoBehaviour
     {
         if (!level.LevelComplete())
         {
-            if (!isDashing)
-            {
                 if (collision.gameObject.tag == "Fireball")
                 {
                     TakeDamage(20);
                 }
-            }
         }
     }
 
