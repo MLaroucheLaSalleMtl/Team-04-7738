@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class FinalBoss : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private float health = 100f;
+    [SerializeField] private Transform startingPoint;
+    [SerializeField] private GameObject fireballPrefab;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetButtonDown("Fire1")) {
+            Cast();
+        }
+    }
+
+    void Cast()
+    {
+        Instantiate(fireballPrefab, startingPoint.position, startingPoint.rotation);
     }
 }
