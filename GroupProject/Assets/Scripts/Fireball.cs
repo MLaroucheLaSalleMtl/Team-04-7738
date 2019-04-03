@@ -16,11 +16,4 @@ public class Fireball : MonoBehaviour
     {
         transform.position = new Vector3(transform.position.x - travelSpeed, transform.position.y);
     }
-
-    void OnCollision2D(Collider2D col)
-    {
-        if (col.gameObject.tag == "Player") {
-            Destroy(gameObject);
-        }
-    }
 }

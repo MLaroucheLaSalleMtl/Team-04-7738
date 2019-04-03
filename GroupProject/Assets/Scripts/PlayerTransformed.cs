@@ -248,17 +248,12 @@ public class PlayerTransformed : MonoBehaviour
                 myRigidbody.velocity = new Vector2(0, 0);
                 level.LevelEnd();
             }
-        }
-    }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!level.LevelComplete())
-        {
-                if (collision.gameObject.tag == "Fireball")
-                {
-                    TakeDamage(10);
-                }
+            else if (collision.gameObject.tag == "Fireball")
+            {
+                TakeDamage(10);
+                Destroy(collision.gameObject);
+            }
         }
     }
 
