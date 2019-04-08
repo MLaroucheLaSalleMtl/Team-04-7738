@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Grid
   - Fireball
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

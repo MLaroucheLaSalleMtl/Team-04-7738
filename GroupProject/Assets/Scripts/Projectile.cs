@@ -10,13 +10,15 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = new Vector3(transform.position.x + travelSpeed, transform.position.y);
+
+
         lifeTime -= Time.deltaTime;
         if (lifeTime <= 0)
         {
@@ -28,7 +30,8 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Patrol>().Die();
             Destroy(gameObject);
         }
     }
