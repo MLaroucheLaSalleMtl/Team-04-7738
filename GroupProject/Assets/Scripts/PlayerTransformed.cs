@@ -205,18 +205,21 @@ public class PlayerTransformed : MonoBehaviour
                     Die();
                 }
 
-                if (!GetComponent<SpriteRenderer>().flipX)//facing right
+                else
                 {
-                    knockback = new Vector2(-3500, 3500);
-                }
+                    if (!GetComponent<SpriteRenderer>().flipX)//facing right
+                    {
+                        knockback = new Vector2(-3500, 3500);
+                    }
 
-                else//facing left
-                {
-                    knockback = new Vector2(3500, 3500);
-                }
+                    else//facing left
+                    {
+                        knockback = new Vector2(3500, 3500);
+                    }
 
-                myRigidbody.velocity = new Vector2(0, 0);
-                myRigidbody.AddForce(knockback);
+                    myRigidbody.velocity = new Vector2(0, 0);
+                    myRigidbody.AddForce(knockback);
+                }
             }
 
             canMove = false;
