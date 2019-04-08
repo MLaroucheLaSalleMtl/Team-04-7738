@@ -387,9 +387,31 @@ public class Player : MonoBehaviour
                     myRigidbody.velocity = new Vector2(0, 0);
                     level.LevelEnd();
                 }
+
+                else if (collision.gameObject.tag == "Fireball")
+                {
+                    TakeDamage(20);
+                    Destroy(collision.gameObject);
+                }
             }
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (!level.LevelComplete())
+    //    {
+    //        if (!isDashing)
+    //        {
+    //            if (collision.gameObject.tag == "Fireball")
+    //            {
+    //                TakeDamage(20);
+    //            }
+    //        }
+    //    }
+    //}
+
+ 
 
     public void Die()
     {
@@ -399,12 +421,6 @@ public class Player : MonoBehaviour
             Scene currScene = SceneManager.GetActiveScene();
             SceneManager.LoadScene(currScene.name);
         }
-    }
-
-    public void Quit()
-    {
-        Time.timeScale = 1;
-        code.MainMenu();
     }
 
     private void SwapCharacters()

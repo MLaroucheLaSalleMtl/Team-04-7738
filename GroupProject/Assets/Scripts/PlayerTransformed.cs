@@ -248,6 +248,12 @@ public class PlayerTransformed : MonoBehaviour
                 myRigidbody.velocity = new Vector2(0, 0);
                 level.LevelEnd();
             }
+
+            else if (collision.gameObject.tag == "Fireball")
+            {
+                TakeDamage(10);
+                Destroy(collision.gameObject);
+            }
         }
     }
 

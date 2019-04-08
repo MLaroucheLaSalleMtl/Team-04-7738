@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -100,6 +101,22 @@ public class LevelManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         timerText.text = ((int)timer).ToString("D3");
+    }
+
+    public void Quit()
+    {
+        Time.timeScale = 1;
+        code.MainMenu();
+    }
+
+    public void Restart()
+    {
+        if (!levelComplete)
+        {
+            Time.timeScale = 1;
+            Scene currScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
+        }
     }
 
     public void LevelEnd()
