@@ -393,6 +393,11 @@ public class Player : MonoBehaviour
                     TakeDamage(20);
                     Destroy(collision.gameObject);
                 }
+
+                else if (collision.gameObject.tag == "Checkpoint")
+                {
+                    myHusk.Checkpoint = transform.position;
+                }
             }
         }
     }
@@ -418,8 +423,9 @@ public class Player : MonoBehaviour
         if (!level.LevelComplete())
         {
             Time.timeScale = 1;
-            Scene currScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currScene.name);
+            transform.position = myHusk.Checkpoint;
+            level.HpSlider.value = 100;
+            level.MpSlider.value = 100;
         }
     }
 
