@@ -1,22 +1,32 @@
 fileFormatVersion: 2
-guid: 1fffa6f94438bf143b2694f4ca916312
+guid: bdb47bdb1da50d340a19019d142f2c7f
 TextureImporter:
   fileIDToRecycleName:
-    21300000: TilesHellLevel3_0
-    21300002: TilesHellLevel3_1
-    21300004: TilesHellLevel3_2
-    21300006: TilesHellLevel3_3
-    21300008: TilesHellLevel3_4
-    21300010: TilesHellLevel3_5
-    21300012: TilesHellLevel3_6
-    21300014: TilesHellLevel3_7
-    21300016: TilesHellLevel3_8
-    21300018: TilesHellLevel3_9
-    21300020: TilesHellLevel3_10
-    21300022: TilesHellLevel3_11
-    21300024: TilesHellLevel3_12
-    21300026: TilesHellLevel3_13
-    21300028: TilesHellLevel3_14
+    21300000: lastTiles_0
+    21300002: lastTiles_1
+    21300004: lastTiles_2
+    21300006: lastTiles_3
+    21300008: lastTiles_4
+    21300010: lastTiles_5
+    21300012: lastTiles_6
+    21300014: lastTiles_7
+    21300016: lastTiles_8
+    21300018: lastTiles_9
+    21300020: lastTiles_10
+    21300022: lastTiles_11
+    21300024: lastTiles_12
+    21300026: lastTiles_13
+    21300028: lastTiles_14
+    21300030: lastTiles_15
+    21300032: lastTiles_16
+    21300034: lastTiles_17
+    21300036: lastTiles_18
+    21300038: lastTiles_19
+    21300040: lastTiles_20
+    21300042: lastTiles_21
+    21300044: lastTiles_22
+    21300046: lastTiles_23
+    21300048: lastTiles_24
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -110,13 +120,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TilesHellLevel3_0
+      name: lastTiles_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 193
+        y: 190
         width: 32
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,19 +134,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 295f1edd2056092408023ad16da331df
+      spriteID: 4c6d1d0e59269a64c9fe22d90249eb1a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_1
+      name: lastTiles_1
       rect:
         serializedVersion: 2
         x: 38
-        y: 196
+        y: 190
         width: 32
-        height: 26
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,79 +154,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b7b9cd8a7719b743bdebc751c028885
+      spriteID: 76fa1f5f14c63cb499771afaed1393fd
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_2
+      name: lastTiles_2
       rect:
         serializedVersion: 2
         x: 76
-        y: 206
-        width: 32
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ca68d5cf55eed6640a3c2cdd4e1d7b90
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_3
-      rect:
-        serializedVersion: 2
-        x: 114
-        y: 199
-        width: 32
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e776e99cd116da49ac65473393fce8a
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_4
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 199
-        width: 32
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f052df0387405d6489ef7d126df1cdd9
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_5
-      rect:
-        serializedVersion: 2
-        x: 156
         y: 190
-        width: 17
-        height: 5
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,79 +174,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caf2900c689294441bbd322b8762611f
+      spriteID: 73dd288d357b1944f86903edba29fcb8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_6
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 190
-        width: 10
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f44c068b3bc0bbb4da784b81394efec6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_7
+      name: lastTiles_3
       rect:
         serializedVersion: 2
         x: 114
         y: 190
-        width: 8
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4a5bfade99aa6c4b8bbe146e1d9fe63
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_8
-      rect:
-        serializedVersion: 2
-        x: 133
-        y: 190
-        width: 6
-        height: 4
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2ce34ac5afbc6c8449dc79c213ee4186
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TilesHellLevel3_9
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 155
         width: 32
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,19 +194,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de660d3833c03e44ab42dca128d82613
+      spriteID: a5f63290d1258f248a847c9e0d2673a0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_10
+      name: lastTiles_4
       rect:
         serializedVersion: 2
         x: 152
-        y: 161
+        y: 190
         width: 32
-        height: 23
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -324,19 +214,119 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01477ff355da9d449b7bb6bab90e7e7b
+      spriteID: 3479dbf873ab9e743a08f93ebd769a4e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_11
+      name: lastTiles_5
       rect:
         serializedVersion: 2
         x: 0
-        y: 116
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 803647bdd1267f6468dc3d890a4c7d30
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_6
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 612c3b1a78898ed4494481112c1d53c4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_7
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2836d5b402413494b8c11a979612434f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_8
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 997170f7db8161b4c884392ecbc6f747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_9
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 152
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 66a8174405b08324b95f44fb43bd8656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
         width: 33
-        height: 30
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -344,13 +334,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74082d99bfff4444fbf47c0298e8cb68
+      spriteID: 00cd7dfa54657964b889a01fe4f5e3ed
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_12
+      name: lastTiles_11
       rect:
         serializedVersion: 2
         x: 38
@@ -364,13 +354,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b6687114a855244496c1e59cfdfb3c1
+      spriteID: 5fd453699bd176d4799865ca874dab93
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_13
+      name: lastTiles_12
       rect:
         serializedVersion: 2
         x: 76
@@ -384,19 +374,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2690487214b5c94e9efb8bb5c8fee27
+      spriteID: d18584a95373aea469d0dc4e96177a9b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TilesHellLevel3_14
+      name: lastTiles_13
       rect:
         serializedVersion: 2
         x: 114
-        y: 117
+        y: 114
         width: 32
-        height: 29
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -404,7 +394,227 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83ea1514fac0c7541bf214568775cc66
+      spriteID: 7d0936537a2773b4f909614d00ac0329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_14
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 114
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22aad8f427dd1e0498f3a87ef6a211b0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 76
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fec3efdf848c1054bbbe35939bb65b4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_16
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 76
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a47a70d412df43c45bf8dc5fdea28454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_17
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 76
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc65a9f1db23064fb9b220e7eafbcc1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_18
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 76
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6a5bc7a67e488140b59d08ea419515a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_19
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 76
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fa0aea884d92944c93fea71294e5e2d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a0fa7dca788a6448755e7dc83943b1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_21
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 38
+        width: 32
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c33228ece805bc4d9e23eeb7a771038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_22
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 39
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d01a3bb39b61ba419bb35f1ae714deb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_23
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 38
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2a8c3eba34339e48b41e5b3c1c28448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lastTiles_24
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 38
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be4eb3f10a8d1644d808e73a2c5c3e07
       vertices: []
       indices: 
       edges: []
@@ -412,7 +622,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: a774f138c52a24141a9c510e412a2cf1
+    spriteID: 7c226800226d7f649a82f0ace77ddd6b
     vertices: []
     indices: 
     edges: []

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8692115801994270175}
   - component: {fileID: 8692115801994270171}
   - component: {fileID: 8692115801994270168}
-  - component: {fileID: 8692115801994270169}
   - component: {fileID: 8692115801994270170}
   - component: {fileID: 8692115802003968967}
+  - component: {fileID: 6649793977672691655}
   m_Layer: 0
   m_Name: PlayerTransformed
   m_TagString: Player
@@ -125,22 +125,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!70 &8692115801994270169
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8692115801994270172}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.15}
-  m_Size: {x: 0.97, y: 1.81}
-  m_Direction: 0
 --- !u!114 &8692115801994270170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +238,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &6649793977672691655
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8692115801994270172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.04, y: -0.15}
+  m_Size: {x: 0.97, y: 1.81}
+  m_Direction: 0
 --- !u!1001 &4771305863153000927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -321,7 +321,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: CharacterEffect Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3410793786161045420, guid: 7cf3cce63617be84caa34341e5c72915, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7cf3cce63617be84caa34341e5c72915, type: 3}
 --- !u!4 &1813629043803691932 stripped
 Transform:
