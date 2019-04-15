@@ -294,7 +294,7 @@ public class PlayerTransformed : MonoBehaviour
 
     void Attack()
     {
-        if (Input.GetButtonDown("Fire3") && canAttack && level.MpSlider.value >= ATTACK_MANA_COST)
+        if (Input.GetButtonDown("UseAbility") && canAttack && level.MpSlider.value >= ATTACK_MANA_COST)
         {
             
 

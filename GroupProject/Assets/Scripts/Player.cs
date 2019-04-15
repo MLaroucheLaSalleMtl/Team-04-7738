@@ -243,7 +243,7 @@ public class Player : MonoBehaviour
 
     void Dash()
     {
-        if (Input.GetButton("Fire3") && canDash && level.MpSlider.value >= DASH_MANA_COST)
+        if (Input.GetButton("UseAbility") && canDash && level.MpSlider.value >= DASH_MANA_COST)
         {
             canDash = false;
             level.MpSlider.value -= DASH_MANA_COST;
@@ -252,16 +252,17 @@ public class Player : MonoBehaviour
             myAudio.Play();
             isDashing = true;
 
-            if (!GetComponent<SpriteRenderer>().flipX)
-            {
-                dashForce = new Vector2(/*myRigidbody.velocity.x*/ +dashDistance, /*myRigidbody.velocity.y*/0);
-            }
+            //if (!GetComponent<SpriteRenderer>().flipX)
+            //{
+            //    dashForce = new Vector2(/*myRigidbody.velocity.x*/ +dashDistance, /*myRigidbody.velocity.y*/0);
+            //}
 
-            else
-            {
-                dashForce = new Vector2(/*myRigidbody.velocity.x*/ -dashDistance, /*myRigidbody.velocity.y*/0);
-            }
+            //else
+            //{
+            //    dashForce = new Vector2(/*myRigidbody.velocity.x*/ -dashDistance, /*myRigidbody.velocity.y*/0);
+            //}
 
+            dashForce = new Vector2(dashDistance, 0);
             myRigidbody.velocity = new Vector2(0, 0);
             //myRigidbody.velocity = dashForce;
             ////myRigidbody.AddForce(dashForce*500);
@@ -269,7 +270,16 @@ public class Player : MonoBehaviour
 
         if (isDashing)
         {
-            myRigidbody.velocity = (dashForce / 20);
+            if (!GetComponent<SpriteRenderer>().flipX)
+            {
+                myRigidbody.velocity = (dashForce / 20);
+            }
+
+            else
+            {
+                myRigidbody.velocity = (-dashForce / 20);
+            }
+                
 
             dashTicks--;
 

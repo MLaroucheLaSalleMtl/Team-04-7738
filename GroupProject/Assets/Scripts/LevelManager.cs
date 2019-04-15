@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class LevelManager : MonoBehaviour
 {
     private GameManager code;
+    private EventSystem myEventSystem;
 
     //Player
     [SerializeField] Text playerScore;
@@ -50,11 +52,19 @@ public class LevelManager : MonoBehaviour
         code = FindObjectOfType<GameManager>();
         scorePanel.gameObject.SetActive(false);
         menu.gameObject.SetActive(false);
+        myEventSystem = FindObjectOfType<EventSystem>().GetComponent<EventSystem>();
 
         playerScore.text = "SCORE: " + code.GetScore().ToString("D5");
         levelText.text = $"LEVEL\n {code.GetLevel()}";
         levelComplete = false;
         levelEndTimer = 4;
+    }
+
+    IEnumerator HighlightBtn()//code taken from https://answers.unity.com/questions/1011523/first-selected-gameobject-not-highlighted.html sets first button as highlighted in pause menu
+    {
+        myEventSystem.SetSelectedGameObject(null);
+        yield return null;
+        myEventSystem.SetSelectedGameObject(myEventSystem.firstSelectedGameObject);
     }
 
     // Update is called once per frame
@@ -84,6 +94,7 @@ public class LevelManager : MonoBehaviour
     {
         if (!paused)
         {
+            StartCoroutine("HighlightBtn");
             paused = true;
             Time.timeScale = 0;
         }
