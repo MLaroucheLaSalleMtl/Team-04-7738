@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTransformed : MonoBehaviour
 {
+    private FinalBoss boss;
+
     //GameManager
     private GameManager code;
     private LevelManager level;
@@ -55,6 +57,7 @@ public class PlayerTransformed : MonoBehaviour
         level = FindObjectOfType<LevelManager>();
         myHusk = FindObjectOfType<Husk>();
 
+        boss = FindObjectOfType<FinalBoss>();
         //projectile = FindObjectOfType<Projectile>();
     }
 
@@ -273,6 +276,10 @@ public class PlayerTransformed : MonoBehaviour
             transform.position = myHusk.Checkpoint;
             level.HpSlider.value = 100;
             level.MpSlider.value = 100;
+            if (boss != null)
+            {
+                boss.RegenHealth();
+            }
         }
     }
 

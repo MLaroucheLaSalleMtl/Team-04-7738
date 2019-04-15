@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     private GameManager code;
     private LevelManager level;
     private Husk myHusk;
+    private FinalBoss boss;
 
     //SFX
     [SerializeField] AudioClip[] sounds;
@@ -83,6 +84,7 @@ public class Player : MonoBehaviour
         code = FindObjectOfType<GameManager>();
         level = FindObjectOfType<LevelManager>();
         myHusk = FindObjectOfType<Husk>();
+        boss = FindObjectOfType<FinalBoss>();
     }
 
     private void FixedUpdate()
@@ -439,6 +441,10 @@ public class Player : MonoBehaviour
             transform.position = myHusk.Checkpoint;
             level.HpSlider.value = 100;
             level.MpSlider.value = 100;
+            if (boss != null)
+            {
+                boss.RegenHealth();
+            }
         }
     }
 

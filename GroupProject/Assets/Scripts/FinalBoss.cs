@@ -104,4 +104,9 @@ public class FinalBoss : MonoBehaviour
     private void FrostbiteSFX() {
         audioSource.PlayOneShot(frostbiteSFX);
     }
+
+    public void RegenHealth()
+    {
+        health = 20;
+    }
 }
