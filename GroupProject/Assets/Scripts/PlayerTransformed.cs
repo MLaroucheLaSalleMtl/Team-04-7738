@@ -78,13 +78,6 @@ public class PlayerTransformed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("SwapForm"))
-        {
-            SwapCharacters();
-            //Destroy(gameObject);
-            //level.LevelEnd();
-        }
-
         if (!level.LevelComplete())
         {
             if (Input.GetButtonDown("Cancel"))
@@ -94,6 +87,13 @@ public class PlayerTransformed : MonoBehaviour
 
             if (!level.Paused())
             {
+                if (Input.GetButtonDown("SwapForm"))
+                {
+                    SwapCharacters();
+                    //Destroy(gameObject);
+                    //level.LevelEnd();
+                }
+
                 if (!canMove)
                 {
                     gracePeriod -= Time.deltaTime;

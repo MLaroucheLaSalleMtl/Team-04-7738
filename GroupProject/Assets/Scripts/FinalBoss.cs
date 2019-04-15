@@ -24,7 +24,7 @@ public class FinalBoss : MonoBehaviour
     //Attack
     private Animator anim;
     [SerializeField] private float timer = 0f;
-    private int random = Random.Range(0, 2);
+    private int random; 
 
     void Start()
     {
@@ -33,7 +33,8 @@ public class FinalBoss : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < hearts.Length; i++) {
+        for (int i = 0; i < hearts.Length; i++)
+        {
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
@@ -43,36 +44,56 @@ public class FinalBoss : MonoBehaviour
                 hearts[i].sprite = emptyHeart;
             }
         }
-        
-        if (timer <= 0f)
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 2.5f)
         {
-            timer = 5f;
+            anim.SetBool("Cast", false);
         }
 
-        if(timer > 0f)
+        if (timer <= 0f)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
+            timer = 3.5f;
+            random = Random.Range(0, 2);
+            switch (random)
             {
-                switch (random) {
-                    case 0:
-                        FireskullCast();
-                        break;
-                    case 1:
-                        FrostbiteCast();
-                        break;
-                    default:
-                        break;
-                }            
+                case 0:
+                    FireskullCast();
+                    break;
+                case 1:
+                    FrostbiteCast();
+                    break;
+                default:
+                    break;
             }
         }
+
+        //if (timer > 0f)
+        //{
+        //    timer -= Time.deltaTime;
+        //    if (timer <= 0f)
+        //    {
+        //        switch (random)
+        //        {
+        //            case 0:
+        //                FireskullCast();
+        //                break;
+        //            case 1:
+        //                FrostbiteCast();
+        //                break;
+        //            default:
+        //                break;
+        //        }
+        //    }
+        //}
     }
 
     void FireskullCast()
     {
         anim.SetBool("Cast", true);
         Instantiate(fireskullPrefab, fireskullSpawn.position, fireskullSpawn.rotation);
-        timer = 0f;
+        //timer = 0f;
     }
 
     void FrostbiteCast()
@@ -82,6 +103,11 @@ public class FinalBoss : MonoBehaviour
         Instantiate(frostbitePrefab, frostbiteSpawn2.position, frostbiteSpawn2.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn3.position, frostbiteSpawn3.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn4.position, frostbiteSpawn4.rotation);
-        timer = 0f;
+        //timer = 0f;
+    }
+
+    public void TakeDamage()
+    {
+
     }
 }

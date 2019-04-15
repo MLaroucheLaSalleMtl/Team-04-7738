@@ -4139,6 +4139,11 @@ PrefabInstance:
       propertyPath: heartsAmount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
+        type: 3}
+      propertyPath: timer
+      value: 3.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1677535955436058518, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: m_Name

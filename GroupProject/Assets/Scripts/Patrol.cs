@@ -18,7 +18,7 @@ public class Patrol : MonoBehaviour
 
     public void Die()
     {
-        if (movingRight)
+        if (movingRight)//movingright
         {
             transform.position += new Vector3(1f, 0.5f, 0);
         }

@@ -108,13 +108,6 @@ public class Player : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("SwapForm"))
-        {
-            SwapCharacters();
-            //Destroy(gameObject);
-            //level.LevelEnd();
-        }
-
         if (!level.LevelComplete())
         {
             if (Input.GetButtonDown("Cancel"))
@@ -124,6 +117,13 @@ public class Player : MonoBehaviour
 
             if (!level.Paused())
             {
+                if (Input.GetButtonDown("SwapForm"))
+                {
+                    SwapCharacters();
+                    //Destroy(gameObject);
+                    //level.LevelEnd();
+                }
+
                 if (!canMove)
                 {
                     gracePeriod -= Time.deltaTime;
@@ -219,7 +219,7 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetButton("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             Vector2 jumpForce = new Vector2(myRigidbody.velocity.x, jumpHeight);
             myRigidbody.velocity = jumpForce;
@@ -377,6 +377,11 @@ public class Player : MonoBehaviour
     {
         if (!level.LevelComplete())
         {
+            if (collision.gameObject.tag == "Checkpoint")
+            {
+                myHusk.Checkpoint = transform.position;
+            }
+
             if (!isDashing)
             {
                 if (collision.gameObject.tag == "Death")
@@ -405,11 +410,6 @@ public class Player : MonoBehaviour
                 {
                     TakeDamage(20);
                     Destroy(collision.gameObject);
-                }
-
-                else if (collision.gameObject.tag == "Checkpoint")
-                {
-                    myHusk.Checkpoint = transform.position;
                 }
             }
         }

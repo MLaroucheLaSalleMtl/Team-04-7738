@@ -12827,16 +12827,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3485466702415513327, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3485466701483007138, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3485466702337177743, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12991,6 +12981,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Die
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485466702415513327, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3485466701483007138, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3485466703064975599, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
         type: 3}
@@ -13255,6 +13255,11 @@ PrefabInstance:
     - target: {fileID: 6594227495337911205, guid: 4105fba16f4634045826a9865485f897,
         type: 3}
       propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594227495337911202, guid: 4105fba16f4634045826a9865485f897,
+        type: 3}
+      propertyPath: speed
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
