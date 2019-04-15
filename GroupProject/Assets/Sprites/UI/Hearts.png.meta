@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 6c4bcdf8b2c3156499a6f5600f4b03fc
+guid: b11c64cd804b4524095f3405861071ce
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Enemy HP Bar_0
+    21300000: Hearts_0
+    21300002: Hearts_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 200
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -107,13 +108,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Enemy HP Bar_0
+      name: Hearts_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 32
-        width: 120
-        height: 20
+        x: 88
+        y: 242
+        width: 40
+        height: 33
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +122,27 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac9249930291d41459dfc5be8d98cb18
+      spriteID: e7d5b908a2d2a5f49b2600fe4dc20430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hearts_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 41
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09d3f2b6683fe8c47b5f335685914590
       vertices: []
       indices: 
       edges: []
@@ -129,7 +150,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 9fe709f96c1f6d347ab24435f7c6c704
+    spriteID: 342b71220926533418d9b161184eb476
     vertices: []
     indices: 
     edges: []

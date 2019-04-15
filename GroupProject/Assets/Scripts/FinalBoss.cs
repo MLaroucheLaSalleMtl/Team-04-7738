@@ -1,11 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FinalBoss : MonoBehaviour
 {
-    [SerializeField] private float health = 100f;
-    [SerializeField] private float timer = 0f;
+    //Health
+    [SerializeField] private float health;
+    [SerializeField] private float heartsAmount;
+    [SerializeField] private Image[] hearts;
+    [SerializeField] private Sprite fullHeart;
+    [SerializeField] private Sprite emptyHeart;
+
+    //Spawns and Prefabs
     [SerializeField] private Transform fireskullSpawn;
     [SerializeField] private Transform frostbiteSpawn1;
     [SerializeField] private Transform frostbiteSpawn2;
@@ -13,7 +20,10 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private Transform frostbiteSpawn4;
     [SerializeField] private GameObject fireskullPrefab;
     [SerializeField] private GameObject frostbitePrefab;
+
+    //Attack
     private Animator anim;
+    [SerializeField] private float timer = 0f;
     private int random = Random.Range(0, 2);
 
     void Start()
@@ -23,6 +33,17 @@ public class FinalBoss : MonoBehaviour
 
     void Update()
     {
+        for (int i = 0; i < hearts.Length; i++) {
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHeart;
+            }
+        }
+        
         if (timer <= 0f)
         {
             timer = 5f;
