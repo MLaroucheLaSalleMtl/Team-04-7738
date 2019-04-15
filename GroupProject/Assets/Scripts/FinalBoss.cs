@@ -24,11 +24,16 @@ public class FinalBoss : MonoBehaviour
     //Attack
     private Animator anim;
     [SerializeField] private float timer = 0f;
-    private int random; 
+    private int random;
+
+    //SFX
+    private AudioSource audioSource;
+    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -68,32 +73,13 @@ public class FinalBoss : MonoBehaviour
                     break;
             }
         }
-
-        //if (timer > 0f)
-        //{
-        //    timer -= Time.deltaTime;
-        //    if (timer <= 0f)
-        //    {
-        //        switch (random)
-        //        {
-        //            case 0:
-        //                FireskullCast();
-        //                break;
-        //            case 1:
-        //                FrostbiteCast();
-        //                break;
-        //            default:
-        //                break;
-        //        }
-        //    }
-        //}
     }
 
     void FireskullCast()
     {
         anim.SetBool("Cast", true);
         Instantiate(fireskullPrefab, fireskullSpawn.position, fireskullSpawn.rotation);
-        //timer = 0f;
+        FireskullSFX();
     }
 
     void FrostbiteCast()
@@ -103,11 +89,19 @@ public class FinalBoss : MonoBehaviour
         Instantiate(frostbitePrefab, frostbiteSpawn2.position, frostbiteSpawn2.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn3.position, frostbiteSpawn3.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn4.position, frostbiteSpawn4.rotation);
-        //timer = 0f;
+        FrostbiteSFX();
     }
 
     public void TakeDamage()
     {
+        health--;
+    }
 
+    private void FireskullSFX() {
+        audioSource.PlayOneShot(fireSkullSFX);
+    }
+
+    private void FrostbiteSFX() {
+        audioSource.PlayOneShot(frostbiteSFX);
     }
 }
