@@ -150,7 +150,7 @@ public class PlayerTransformed : MonoBehaviour
             if (mpRegenInterval <= 0)
             {
                 mpRegenInterval = 1f;
-                level.MpSlider.value += 2;//twice as fast as first form
+                level.MpSlider.value += 3;
             }
         }
 

@@ -23,7 +23,7 @@ public class FinalBoss : MonoBehaviour
 
     //Attack
     private Animator anim;
-    [SerializeField] private float timer = 0f;
+    private float timer = 2.5f;
     private int random;
 
     //SFX
@@ -52,14 +52,14 @@ public class FinalBoss : MonoBehaviour
 
         timer -= Time.deltaTime;
 
-        if (timer <= 2.5f)
+        if (timer <= 1.5f)
         {
             anim.SetBool("Cast", false);
         }
 
         if (timer <= 0f)
         {
-            timer = 3.5f;
+            timer = 2.5f;
             random = Random.Range(0, 2);
             switch (random)
             {

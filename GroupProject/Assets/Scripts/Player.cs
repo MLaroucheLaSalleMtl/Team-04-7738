@@ -180,7 +180,7 @@ public class Player : MonoBehaviour
             if (mpRegenInterval <= 0)
             {
                 mpRegenInterval = 1f;
-                level.MpSlider.value += 1;
+                level.MpSlider.value += 4;
             }
         }
 
