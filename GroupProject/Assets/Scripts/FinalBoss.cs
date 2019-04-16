@@ -38,12 +38,15 @@ public class FinalBoss : MonoBehaviour
 
     //Level
     private GameManager code;
+    private LevelManager level;
+    private bool sentToNextLevel = false;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         code = FindObjectOfType<GameManager>();
+        level = FindObjectOfType<LevelManager>();
     }
 
     void Update()
@@ -59,6 +62,16 @@ public class FinalBoss : MonoBehaviour
                 hearts[i].sprite = emptyHeart;
             }
         }
+
+        if (level.LevelComplete())
+        {
+            if (!sentToNextLevel)
+            {
+                sentToNextLevel = true;
+                code.Invoke("SetLevelComplete", 5);
+            }
+        }
+        
 
         if (bossAlive)
         {
@@ -129,7 +142,7 @@ public class FinalBoss : MonoBehaviour
         {
             anim.SetBool("Dead", true);
             bossAlive = false;
-            //code.Invoke("SetLevelComplete", 5);
+            level.LevelEnd();           
         }
 
     }

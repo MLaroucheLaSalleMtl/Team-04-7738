@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 40511496}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: TileMap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39797,7 +39797,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &82473591
 GameObject:
@@ -41577,7 +41577,7 @@ Transform:
   m_Children:
   - {fileID: 40511493}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699990302
 GameObject:
@@ -41802,7 +41802,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 89.642006}
 --- !u!1 &776017680
 GameObject:
@@ -41881,7 +41881,7 @@ Transform:
   m_LocalScale: {x: 2.5632176, y: 3.1848736, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 43
+  m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.391}
 --- !u!4 &787415326 stripped
 Transform:
@@ -42570,7 +42570,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -91.885}
 --- !u!1001 &1162203137
 PrefabInstance:
@@ -43806,7 +43806,7 @@ Transform:
   - {fileID: 272262450}
   - {fileID: 1440917479}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1561209716
 MonoBehaviour:
@@ -44406,7 +44406,7 @@ PrefabInstance:
     - target: {fileID: 3485466702337177743, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3485466702337177743, guid: f556dbe36e8e7ed4da6b7cc26d22329b,
         type: 3}
@@ -45133,7 +45133,7 @@ Transform:
   - {fileID: 1190296895}
   - {fileID: 2093705586}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2102271440
 BoxCollider2D:

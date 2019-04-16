@@ -11,6 +11,7 @@ TagManager:
   - Fireball
   - Checkpoint
   - Boss
+  - TileMap
   layers:
   - Default
   - TransparentFX

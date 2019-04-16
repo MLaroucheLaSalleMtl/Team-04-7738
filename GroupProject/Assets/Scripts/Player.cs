@@ -93,7 +93,19 @@ public class Player : MonoBehaviour
     //    {
     //        if (!level.Paused())
     //        {
+    //            if (canMove)
+    //            {
+    //                //if (Input.GetButtonDown("SwapForm"))
+    //                //{
+    //                //    SwapCharacters();
+    //                //    //Destroy(gameObject);
+    //                //    //level.LevelEnd();
+    //                //}
 
+    //                Run();
+    //                Jump();
+    //                Dash();
+    //            }
     //        }
     //    }
     //}
@@ -105,6 +117,10 @@ public class Player : MonoBehaviour
     {
         if (!level.LevelComplete())
         {
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                level.LevelEnd();
+            }
             if (Input.GetButtonDown("Cancel"))
             {
                 level.Pause();
@@ -117,8 +133,6 @@ public class Player : MonoBehaviour
                     if (Input.GetButtonDown("SwapForm"))
                     {
                         SwapCharacters();
-                        //Destroy(gameObject);
-                        //level.LevelEnd();
                     }
 
                     Run();
@@ -239,11 +253,24 @@ public class Player : MonoBehaviour
             myAudio.Play();
         }
 
-        if (myRigidbody.velocity.y == 0)
+        Debug.Log(myRigidbody.velocity.y);
+
+        RaycastHit2D groundInfo = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.88f), Vector2.down);
+
+        Debug.Log(groundInfo.distance);
+        Debug.Log(groundInfo.collider.gameObject);
+
+        if (groundInfo.distance < 0.1f && groundInfo.collider.gameObject.tag == "TileMap")
         {
             isGrounded = true;
             myAnimator.SetBool("Jump", false);
         }
+
+        //    if (myRigidbody.velocity.y == 0)
+        //{
+        //    isGrounded = true;
+        //    myAnimator.SetBool("Jump", false);
+        //}
 
         else
         {

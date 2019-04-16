@@ -89,8 +89,6 @@ public class PlayerTransformed : MonoBehaviour
                     if (Input.GetButtonDown("SwapForm"))
                     {
                         SwapCharacters();
-                        //Destroy(gameObject);
-                        //level.LevelEnd();
                     }
 
                     Run();
