@@ -33,7 +33,7 @@ public class FinalBoss : MonoBehaviour
 
     //SFX
     private AudioSource audioSource;
-    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX;
+    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX, lightningSFX;
 
     void Start()
     {
@@ -65,7 +65,7 @@ public class FinalBoss : MonoBehaviour
         if (timer <= 0f)
         {
             timer = 2.5f;
-            random = Random.Range(0, 2);
+            random = Random.Range(2, 2);
             switch (random)
             {
                 case 0:
@@ -74,7 +74,11 @@ public class FinalBoss : MonoBehaviour
                 case 1:
                     FrostbiteCast();
                     break;
+                case 2:
+                    Invoke("LightningStrike", 1);
+                    break;
                 default:
+                    FireskullCast();
                     break;
             }
         }
@@ -97,6 +101,16 @@ public class FinalBoss : MonoBehaviour
         FrostbiteSFX();
     }
 
+    void LightningStrike()
+    {
+        anim.SetBool("Cast", true);
+        Instantiate(lightningPrefab, lightningSpawn1.position, lightningSpawn1.rotation);
+        Instantiate(lightningPrefab, lightningSpawn2.position, lightningSpawn2.rotation);
+        Instantiate(lightningPrefab, lightningSpawn3.position, lightningSpawn3.rotation);
+        Instantiate(lightningPrefab, lightningSpawn4.position, lightningSpawn4.rotation);
+        LightningSFX();
+    }
+
     public void TakeDamage()
     {
         health--;
@@ -108,6 +122,11 @@ public class FinalBoss : MonoBehaviour
 
     private void FrostbiteSFX() {
         audioSource.PlayOneShot(frostbiteSFX);
+    }
+
+    private void LightningSFX()
+    {
+        audioSource.PlayOneShot(lightningSFX);
     }
 
     public void RegenHealth()
