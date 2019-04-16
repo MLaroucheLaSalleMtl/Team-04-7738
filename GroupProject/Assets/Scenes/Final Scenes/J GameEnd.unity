@@ -5189,6 +5189,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Husk
       objectReference: {fileID: 0}
+    - target: {fileID: 4206233187074007389, guid: 241b78648ea9fee43916deeeaa33a4d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4206233187074007388, guid: 241b78648ea9fee43916deeeaa33a4d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5256,8 +5261,9 @@ GameObject:
   m_Component:
   - component: {fileID: 790099523}
   - component: {fileID: 790099522}
+  - component: {fileID: 790099524}
   m_Layer: 0
-  m_Name: end6
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5325,6 +5331,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &790099524
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790099521}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 71df1b0c10f008b43a59b741d007f02e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &882660939 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3485466701483007138, guid: f556dbe36e8e7ed4da6b7cc26d22329b,

@@ -60,6 +60,7 @@ public class FinalBoss : MonoBehaviour
         if (timer <= 1.5f)
         {
             anim.SetBool("Cast", false);
+            transform.position = new Vector2(8.65f, 2f);
         }
 
         if (timer <= 0f)
@@ -87,6 +88,7 @@ public class FinalBoss : MonoBehaviour
     void FireskullCast()
     {
         anim.SetBool("Cast", true);
+        transform.position = new Vector2(8.65f, 1.5f);
         Instantiate(fireskullPrefab, fireskullSpawn.position, fireskullSpawn.rotation);
         FireskullSFX();
     }

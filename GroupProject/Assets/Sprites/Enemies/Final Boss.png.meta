@@ -7,6 +7,35 @@ TextureImporter:
     21300004: Final Boss_2
     21300006: Final Boss_3
     21300008: Final Boss_4
+    21300010: Final Boss_0
+    21300012: Final Boss_6
+    21300014: Final Boss_7
+    21300016: Final Boss_8
+    21300018: Final Boss_9
+    21300020: Final Boss_10
+    21300022: Final Boss_11
+    21300024: Final Boss_12
+    21300026: Final Boss_13
+    21300028: Final Boss_14
+    21300030: Final Boss_15
+    21300032: Final Boss_16
+    21300034: Final Boss_17
+    21300036: Final Boss_18
+    21300038: Final Boss_19
+    21300040: Final Boss_20
+    21300042: Final Boss_21
+    21300044: Final Boss_22
+    21300046: Final Boss_23
+    21300048: Final Boss_24
+    21300050: Final Boss_25
+    21300052: Final Boss_26
+    21300054: Final Boss_27
+    21300056: Final Boss_28
+    21300058: Final Boss_29
+    21300060: Final Boss_30
+    21300062: Final Boss_31
+    21300064: Final Boss_32
+    21300066: Final Boss_33
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -111,13 +140,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Final Boss_5
+      name: Final Boss_0
       rect:
         serializedVersion: 2
-        x: 862
+        x: 664
         y: 16
-        width: 102
-        height: 169
+        width: 54
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -125,7 +154,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c22fbe99d1313c04e9dc09d8e802d30f
+      spriteID: b4465412b38becd47bec6beee2fb03e7
       vertices: []
       indices: 
       edges: []
@@ -134,10 +163,10 @@ TextureImporter:
       name: Final Boss_1
       rect:
         serializedVersion: 2
-        x: 51
+        x: 861
         y: 16
-        width: 102
-        height: 169
+        width: 59
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,7 +174,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e3a84ae92ae60c04e96ada9849ee3709
+      spriteID: 8eec7f695f3239f47ab624a9cd0400af
       vertices: []
       indices: 
       edges: []
@@ -154,10 +183,10 @@ TextureImporter:
       name: Final Boss_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 1061
         y: 16
-        width: 102
-        height: 169
+        width: 59
+        height: 170
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,7 +194,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2fd4ce6ff82df4db95013596c428ea
+      spriteID: d94e5c3b17c4dda4690bfac29b27f0ab
       vertices: []
       indices: 
       edges: []
@@ -174,10 +203,10 @@ TextureImporter:
       name: Final Boss_3
       rect:
         serializedVersion: 2
-        x: 461
+        x: 1261
         y: 16
-        width: 102
-        height: 169
+        width: 59
+        height: 168
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,7 +214,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6422409e8941b0142b065cbc1a0d252e
+      spriteID: 05f53389a48fe5f4ab0815d062796b70
       vertices: []
       indices: 
       edges: []
@@ -194,10 +223,10 @@ TextureImporter:
       name: Final Boss_4
       rect:
         serializedVersion: 2
-        x: 664
-        y: 16
-        width: 102
-        height: 169
+        x: 1461
+        y: 13
+        width: 83
+        height: 167
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,7 +234,107 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 413f91a0ed978d0419ac9fac1be05e7e
+      spriteID: f3006182405152c4f8798d7227b92123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final Boss_5
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 15
+        width: 59
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34ce6950a0eea00469e3179ca198583d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final Boss_6
+      rect:
+        serializedVersion: 2
+        x: 1861
+        y: 15
+        width: 59
+        height: 166
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff2e7480663cb94da3a3835a7c665c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final Boss_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 16
+        width: 92
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a994261ae9f4a54d8b5039e46924e46
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final Boss_9
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 16
+        width: 69
+        height: 145
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22986d300c90bf54b95687663e7b2d96
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Final Boss_19
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 16
+        width: 102
+        height: 167
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfc336cef3617a4fb17e1009e9d73ab
       vertices: []
       indices: 
       edges: []

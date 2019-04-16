@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5561928561478889328}
   - component: {fileID: 5561928561478889327}
   - component: {fileID: 5561928561478889326}
+  - component: {fileID: 884998842436434556}
   m_Layer: 0
   m_Name: Lightning
   m_TagString: Fireball
@@ -116,3 +117,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &884998842436434556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5561928561478889331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e537b0a3e5ea6604f989914afa2bb56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

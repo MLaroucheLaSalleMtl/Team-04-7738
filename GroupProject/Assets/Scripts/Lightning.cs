@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Lightning : MonoBehaviour
 {
-    [SerializeField] private float lifeTime = 0.5f;
+    private float lifeTime = 1f;
 
     void Start()
     {
