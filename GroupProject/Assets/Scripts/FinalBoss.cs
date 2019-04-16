@@ -18,8 +18,13 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private Transform frostbiteSpawn2;
     [SerializeField] private Transform frostbiteSpawn3;
     [SerializeField] private Transform frostbiteSpawn4;
+    [SerializeField] private Transform lightningSpawn1;
+    [SerializeField] private Transform lightningSpawn2;
+    [SerializeField] private Transform lightningSpawn3;
+    [SerializeField] private Transform lightningSpawn4;
     [SerializeField] private GameObject fireskullPrefab;
     [SerializeField] private GameObject frostbitePrefab;
+    [SerializeField] private GameObject lightningPrefab;
 
     //Attack
     private Animator anim;
