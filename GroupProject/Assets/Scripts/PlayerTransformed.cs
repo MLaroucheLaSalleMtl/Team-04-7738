@@ -61,22 +61,16 @@ public class PlayerTransformed : MonoBehaviour
         //projectile = FindObjectOfType<Projectile>();
     }
 
-    private void FixedUpdate()
-    {
-        if (!level.LevelComplete())
-        {
-            if (!level.Paused())
-            {
-                if (canMove)
-                {
-                    Run();
-                    Attack();
-                }
-
-                RegenMana();
-            }
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (!level.LevelComplete())
+    //    {
+    //        if (!level.Paused())
+    //        {
+                
+    //        }
+    //    }
+    //}
 
     // Update is called once per frame
     void Update()
@@ -90,14 +84,20 @@ public class PlayerTransformed : MonoBehaviour
 
             if (!level.Paused())
             {
-                if (Input.GetButtonDown("SwapForm"))
+                if (canMove)
                 {
-                    SwapCharacters();
-                    //Destroy(gameObject);
-                    //level.LevelEnd();
+                    if (Input.GetButtonDown("SwapForm"))
+                    {
+                        SwapCharacters();
+                        //Destroy(gameObject);
+                        //level.LevelEnd();
+                    }
+
+                    Run();
+                    Attack();
                 }
 
-                if (!canMove)
+                else
                 {
                     gracePeriod -= Time.deltaTime;
 
@@ -118,15 +118,23 @@ public class PlayerTransformed : MonoBehaviour
                         gracePeriod = 0.8f;
                     }
                 }
+
+                RegenMana();
             }
         }
 
         else
         {
-            if (Input.GetButtonDown("Jump") && !sentToNextLevel)
+            //if (Input.GetButtonDown("Jump") && !sentToNextLevel)
+            //{
+            //    sentToNextLevel = true;
+            //    code.SetLevelComplete();
+            //}
+
+            if (!sentToNextLevel)
             {
                 sentToNextLevel = true;
-                code.SetLevelComplete();
+                code.Invoke("SetLevelComplete", 5);
             }
 
             //levelEndTimer -= Time.deltaTime;

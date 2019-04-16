@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
         myAudio = GetComponent<AudioSource>();
-        
+
         dashTime = DASH_DURATION;
 
         code = FindObjectOfType<GameManager>();
@@ -87,25 +87,18 @@ public class Player : MonoBehaviour
         boss = FindObjectOfType<FinalBoss>();
     }
 
-    private void FixedUpdate()
-    {
-        if (!level.LevelComplete())
-        {
-            if (!level.Paused())
-            {
-                if (canMove)
-                {
-                    Run();
-                    Jump();
-                    Dash();
-                }
+    //private void FixedUpdate()
+    //{
+    //    if (!level.LevelComplete())
+    //    {
+    //        if (!level.Paused())
+    //        {
 
-                RegenMana();
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
-    
+
 
     //Update is called once per frame
     void Update()
@@ -119,14 +112,21 @@ public class Player : MonoBehaviour
 
             if (!level.Paused())
             {
-                if (Input.GetButtonDown("SwapForm"))
+                if (canMove)
                 {
-                    SwapCharacters();
-                    //Destroy(gameObject);
-                    //level.LevelEnd();
+                    if (Input.GetButtonDown("SwapForm"))
+                    {
+                        SwapCharacters();
+                        //Destroy(gameObject);
+                        //level.LevelEnd();
+                    }
+
+                    Run();
+                    Jump();
+                    Dash();
                 }
 
-                if (!canMove)
+                else
                 {
                     gracePeriod -= Time.deltaTime;
 
@@ -147,15 +147,24 @@ public class Player : MonoBehaviour
                         gracePeriod = 0.8f;
                     }
                 }
+
+                RegenMana();
+                DashCooldown();
             }
         }
 
         else
         {
-            if (Input.GetButtonDown("Jump") && !sentToNextLevel)
+            //if (Input.GetButtonDown("Jump") && !sentToNextLevel)
+            //{
+            //    sentToNextLevel = true;
+            //    code.SetLevelComplete();
+            //}
+
+            if (!sentToNextLevel)
             {
                 sentToNextLevel = true;
-                code.SetLevelComplete();
+                code.Invoke("SetLevelComplete", 5);
             }
 
             //levelEndTimer -= Time.deltaTime;
@@ -281,7 +290,7 @@ public class Player : MonoBehaviour
             {
                 myRigidbody.velocity = (-dashForce / 20);
             }
-                
+
 
             dashTicks--;
 
@@ -292,6 +301,28 @@ public class Player : MonoBehaviour
             }
         }
 
+        //if (!canDash)
+        //{
+        //    dashTime -= Time.deltaTime;
+        //    dashCoolDown -= Time.deltaTime;
+        //    level.DashCDImage.fillAmount = -dashCoolDown / 2.0f + 1;
+
+        //    if (dashTime <= 0)
+        //    {
+        //        dashTime = DASH_DURATION;
+        //        myAnimator.SetBool("Dash", false);
+        //    }
+
+        //    if (dashCoolDown <= 0)
+        //    {
+        //        dashCoolDown = 2.0f;
+        //        canDash = true;
+        //    }
+        //}
+    }
+
+    private void DashCooldown()
+    {
         if (!canDash)
         {
             dashTime -= Time.deltaTime;
@@ -431,7 +462,7 @@ public class Player : MonoBehaviour
     //    }
     //}
 
- 
+
 
     public void Die()
     {

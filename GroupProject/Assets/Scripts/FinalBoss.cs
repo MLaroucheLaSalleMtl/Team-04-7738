@@ -11,6 +11,7 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private Image[] hearts;
     [SerializeField] private Sprite fullHeart;
     [SerializeField] private Sprite emptyHeart;
+    private bool bossAlive = true;
 
     //Spawns and Prefabs
     [SerializeField] private Transform fireskullSpawn;
@@ -35,10 +36,14 @@ public class FinalBoss : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField] AudioClip fireSkullSFX, frostbiteSFX, lightningSFX;
 
+    //Level
+    private GameManager code;
+
     void Start()
     {
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+        code = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -55,32 +60,35 @@ public class FinalBoss : MonoBehaviour
             }
         }
 
-        timer -= Time.deltaTime;
-
-        if (timer <= 1.5f)
+        if (bossAlive)
         {
-            anim.SetBool("Cast", false);
-            transform.position = new Vector2(8.65f, 2f);
-        }
+            timer -= Time.deltaTime;
 
-        if (timer <= 0f)
-        {
-            timer = 2.5f;
-            random = Random.Range(2, 2);
-            switch (random)
+            if (timer <= 1.5f)
             {
-                case 0:
-                    FireskullCast();
-                    break;
-                case 1:
-                    FrostbiteCast();
-                    break;
-                case 2:
-                    Invoke("LightningStrike", 1);
-                    break;
-                default:
-                    FireskullCast();
-                    break;
+                anim.SetBool("Cast", false);
+                transform.position = new Vector2(8.65f, 2f);
+            }
+
+            if (timer <= 0f)
+            {
+                timer = 2.5f;
+                random = Random.Range(2, 2);
+                switch (random)
+                {
+                    case 0:
+                        FireskullCast();
+                        break;
+                    case 1:
+                        FrostbiteCast();
+                        break;
+                    case 2:
+                        Invoke("LightningStrike", 1);
+                        break;
+                    default:
+                        FireskullCast();
+                        break;
+                }
             }
         }
     }
@@ -116,6 +124,14 @@ public class FinalBoss : MonoBehaviour
     public void TakeDamage()
     {
         health--;
+
+        if (health <= 0)
+        {
+            anim.SetBool("Dead", true);
+            bossAlive = false;
+            //code.Invoke("SetLevelComplete", 5);
+        }
+
     }
 
     private void FireskullSFX() {
