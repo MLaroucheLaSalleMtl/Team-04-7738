@@ -23,17 +23,23 @@ public class FinalBoss : MonoBehaviour
 
     //Attack
     private Animator anim;
-    [SerializeField] private float timer = 0f;
-    private int random = Random.Range(0, 2);
+    private float timer = 2.5f;
+    private int random;
+
+    //SFX
+    private AudioSource audioSource;
+    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        for (int i = 0; i < hearts.Length; i++) {
+        for (int i = 0; i < hearts.Length; i++)
+        {
             if (i < health)
             {
                 hearts[i].sprite = fullHeart;
@@ -43,27 +49,28 @@ public class FinalBoss : MonoBehaviour
                 hearts[i].sprite = emptyHeart;
             }
         }
-        
-        if (timer <= 0f)
+
+        timer -= Time.deltaTime;
+
+        if (timer <= 1.5f)
         {
-            timer = 5f;
+            anim.SetBool("Cast", false);
         }
 
-        if(timer > 0f)
+        if (timer <= 0f)
         {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
+            timer = 2.5f;
+            random = Random.Range(0, 2);
+            switch (random)
             {
-                switch (random) {
-                    case 0:
-                        FireskullCast();
-                        break;
-                    case 1:
-                        FrostbiteCast();
-                        break;
-                    default:
-                        break;
-                }            
+                case 0:
+                    FireskullCast();
+                    break;
+                case 1:
+                    FrostbiteCast();
+                    break;
+                default:
+                    break;
             }
         }
     }
@@ -72,7 +79,7 @@ public class FinalBoss : MonoBehaviour
     {
         anim.SetBool("Cast", true);
         Instantiate(fireskullPrefab, fireskullSpawn.position, fireskullSpawn.rotation);
-        timer = 0f;
+        FireskullSFX();
     }
 
     void FrostbiteCast()
@@ -82,6 +89,24 @@ public class FinalBoss : MonoBehaviour
         Instantiate(frostbitePrefab, frostbiteSpawn2.position, frostbiteSpawn2.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn3.position, frostbiteSpawn3.rotation);
         Instantiate(frostbitePrefab, frostbiteSpawn4.position, frostbiteSpawn4.rotation);
-        timer = 0f;
+        FrostbiteSFX();
+    }
+
+    public void TakeDamage()
+    {
+        health--;
+    }
+
+    private void FireskullSFX() {
+        audioSource.PlayOneShot(fireSkullSFX);
+    }
+
+    private void FrostbiteSFX() {
+        audioSource.PlayOneShot(frostbiteSFX);
+    }
+
+    public void RegenHealth()
+    {
+        health = 20;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     private float travelSpeed = 0.175f;
-    private float lifeTime = 2.0f;
+    private float lifeTime = 5.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,13 @@ public class Projectile : MonoBehaviour
             collision.gameObject.GetComponent<Patrol>().Die();
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "Boss")
+        {
+            collision.gameObject.GetComponent<FinalBoss>().TakeDamage();
+            Destroy(gameObject);
+        }
+
     }
 
     public void ChangeDirection()

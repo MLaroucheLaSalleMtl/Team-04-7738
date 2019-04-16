@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 1677535954674914133}
   m_Layer: 0
   m_Name: Final Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -255,16 +255,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  timer: 5
-  fireballSpawn: {fileID: 1677535955436058519}
+  heartsAmount: 0
+  hearts: []
+  fullHeart: {fileID: 0}
+  emptyHeart: {fileID: 0}
+  fireskullSpawn: {fileID: 0}
   frostbiteSpawn1: {fileID: 223370457}
   frostbiteSpawn2: {fileID: 1753552771}
   frostbiteSpawn3: {fileID: 104294000}
   frostbiteSpawn4: {fileID: 259187970}
-  fireballPrefab: {fileID: 4189911937341427120, guid: e310a41759dc195428175ca4bb8a2bc0,
-    type: 3}
+  fireskullPrefab: {fileID: 0}
   frostbitePrefab: {fileID: 2848343201817153630, guid: 06be62f500236e147b24ecdc27ca6009,
     type: 3}
+  timer: 5
 --- !u!1 &1677535955436058518
 GameObject:
   m_ObjectHideFlags: 0
