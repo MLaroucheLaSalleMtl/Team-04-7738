@@ -65,6 +65,8 @@ public class FinalBoss : MonoBehaviour
 
         if (level.LevelComplete())
         {
+            FindObjectOfType<Camera>().GetComponent<AudioSource>().volume -= 0.005f;
+
             if (!sentToNextLevel)
             {
                 sentToNextLevel = true;
@@ -140,7 +142,7 @@ public class FinalBoss : MonoBehaviour
         {
             anim.SetBool("Dead", true);
             bossAlive = false;
-            level.LevelEnd();           
+            level.LevelEnd();
         }
 
     }

@@ -10,10 +10,14 @@ public class Patrol : MonoBehaviour
     private float deathAnim = 0.667f;
     private bool dead = false;
 
+    //SFX
+    [SerializeField] private AudioClip death;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Die()
@@ -28,6 +32,8 @@ public class Patrol : MonoBehaviour
         }
         
         dead = true;
+
+        audioSource.PlayOneShot(death);
     }
 
     // Update is called once per frame
@@ -36,8 +42,8 @@ public class Patrol : MonoBehaviour
         if (dead)
         {
             GetComponent<CapsuleCollider2D>().enabled = false;
-
             GetComponent<Animator>().SetBool("Death", true);
+
             deathAnim -= Time.deltaTime;
             if (deathAnim <= 0)
             {

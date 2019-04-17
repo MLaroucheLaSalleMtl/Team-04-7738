@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71b4c943361f094f8a47e40377121de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  death: {fileID: 8300000, guid: 262a8b58bcc860445bd88d1911ff7139, type: 3}
   speed: 3
   groundDetection: {fileID: 6594227496068616638}
 --- !u!95 &6594227495337911207
