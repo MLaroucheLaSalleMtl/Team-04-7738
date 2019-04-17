@@ -31,6 +31,7 @@ public class FinalBoss : MonoBehaviour
     private Animator anim;
     private float timer = 2.5f;
     private int random;
+    [SerializeField] GameObject indicator;
 
     //SFX
     private AudioSource audioSource;
@@ -96,6 +97,7 @@ public class FinalBoss : MonoBehaviour
                         break;
                     case 2:
                         Invoke("LightningStrike", 1);
+                        indicator.gameObject.SetActive(true);
                         break;
                     default:
                         FireskullCast();
@@ -162,6 +164,7 @@ public class FinalBoss : MonoBehaviour
     private void LightningSFX()
     {
         audioSource.PlayOneShot(lightningSFX);
+        indicator.gameObject.SetActive(false);
     }
 
     public void RegenHealth()

@@ -5674,7 +5674,7 @@ PrefabInstance:
         type: 3}
       propertyPath: frostbiteSFX
       value: 
-      objectReference: {fileID: 8300000, guid: 23c0d61366eb8ad42acea039b4c7106f, type: 3}
+      objectReference: {fileID: 8300000, guid: 453628569d64efb48b20ab0557b40298, type: 3}
     - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: hearts.Array.data[10]
@@ -5766,6 +5766,11 @@ PrefabInstance:
       propertyPath: Indicator
       value: 
       objectReference: {fileID: 656658951}
+    - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
+        type: 3}
+      propertyPath: indicator
+      value: 
+      objectReference: {fileID: 656658951}
     - target: {fileID: 1677535955436058518, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: m_Name
@@ -5815,7 +5820,7 @@ PrefabInstance:
     - target: {fileID: 4551270086668097495, guid: 2d4c2265daf48794086a6f6352737d8a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4551270086668097499, guid: 2d4c2265daf48794086a6f6352737d8a,
         type: 3}
