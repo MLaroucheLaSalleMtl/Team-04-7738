@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     //Jump
     [SerializeField] float jumpHeight = 7f;
     private bool isGrounded = true;
+    float jumpAnimation = 0.667f;
 
     //Health
     //[SerializeField] Slider hpSlider;
@@ -248,7 +249,7 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpForce = new Vector2(myRigidbody.velocity.x, jumpHeight);
             myRigidbody.velocity = jumpForce;
-            myAnimator.SetBool("Jump", true);
+            //myAnimator.SetBool("Jump", true);
             myAudio.clip = sounds[1];
             myAudio.Play();
         }
@@ -261,16 +262,24 @@ public class Player : MonoBehaviour
             myAnimator.SetBool("Jump", false);
         }
 
+        else
+        {
+            isGrounded = false;
+            jumpAnimation -= Time.deltaTime;
+        }
+
+        if (jumpAnimation <= 0)
+        {
+            jumpAnimation = 0.667f;
+            myAnimator.SetBool("Jump", true);
+        }
+
+
         //    if (myRigidbody.velocity.y == 0)
         //{
         //    isGrounded = true;
         //    myAnimator.SetBool("Jump", false);
         //}
-
-        else
-        {
-            isGrounded = false;
-        }
 
     }
 
