@@ -85,7 +85,7 @@ public class FinalBoss : MonoBehaviour
             if (timer <= 0f)
             {
                 timer = 2.5f;
-                random = Random.Range(2, 2);
+                random = Random.Range(0, 2);
                 switch (random)
                 {
                     case 0:
