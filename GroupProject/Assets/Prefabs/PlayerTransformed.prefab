@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - {fileID: 8300000, guid: c8322337e00c5094ba3301edcecec417, type: 3}
+  - {fileID: 8300000, guid: 4bfce35de6c282b4cb21de917ae07165, type: 3}
   - {fileID: 8300000, guid: 7d368f1f1217dcd4fb357eb3f2d3bb15, type: 3}
   movementSpeed: 3.5
   mpRegenInterval: 1
