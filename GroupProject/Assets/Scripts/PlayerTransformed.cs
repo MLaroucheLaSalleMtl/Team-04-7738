@@ -183,10 +183,10 @@ public class PlayerTransformed : MonoBehaviour
 
             footstepAudioPlayRate -= Time.deltaTime;
 
-            if (footstepAudioPlayRate <= 0 && isGrounded)
+            if (footstepAudioPlayRate <= 0)
             {
-                //myAudio.clip = sounds[0];
-                //myAudio.Play();
+                myAudio.clip = sounds[0];
+                myAudio.Play();
                 footstepAudioPlayRate = 0.4f;
             }
         }
@@ -205,8 +205,8 @@ public class PlayerTransformed : MonoBehaviour
 
             if (canMove)
             {
-                //myAudio.clip = sounds[3];
-                //myAudio.Play();
+                myAudio.clip = sounds[1];
+                myAudio.Play();
                 level.HpSlider.value -= damage;
 
                 if (level.HpSlider.value <= 0)

@@ -137,7 +137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1c8a266508926429e68b2dd1dbc6ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - {fileID: 8300000, guid: c8322337e00c5094ba3301edcecec417, type: 3}
+  - {fileID: 8300000, guid: 7d368f1f1217dcd4fb357eb3f2d3bb15, type: 3}
   movementSpeed: 3.5
   mpRegenInterval: 1
   projectile: {fileID: 7625544960625203535, guid: 9cb0caa7e454f14408bba93f7051f67a,
@@ -261,6 +263,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8692115801994270174}
     m_Modifications:
+    - target: {fileID: 6565222853425838660, guid: 7cf3cce63617be84caa34341e5c72915,
+        type: 3}
+      propertyPath: m_Name
+      value: CharacterEffect Variant
+      objectReference: {fileID: 0}
     - target: {fileID: 6565222853425838659, guid: 7cf3cce63617be84caa34341e5c72915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,11 +322,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6565222853425838660, guid: 7cf3cce63617be84caa34341e5c72915,
-        type: 3}
-      propertyPath: m_Name
-      value: CharacterEffect Variant
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3410793786161045420, guid: 7cf3cce63617be84caa34341e5c72915, type: 3}
