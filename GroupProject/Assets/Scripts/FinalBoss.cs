@@ -65,15 +65,13 @@ public class FinalBoss : MonoBehaviour
 
         if (level.LevelComplete())
         {
-            FindObjectOfType<Camera>().GetComponent<AudioSource>().volume -= 0.005f;
-
             if (!sentToNextLevel)
             {
                 sentToNextLevel = true;
                 code.Invoke("SetLevelComplete", 5);
             }
         }
-        
+
 
         if (bossAlive)
         {
@@ -104,6 +102,11 @@ public class FinalBoss : MonoBehaviour
                         break;
                 }
             }
+        }
+
+        else
+        {
+            FindObjectOfType<Camera>().GetComponent<AudioSource>().volume -= 0.005f;
         }
     }
 
@@ -143,7 +146,7 @@ public class FinalBoss : MonoBehaviour
             audioSource.PlayOneShot(death);
             anim.SetBool("Dead", true);
             bossAlive = false;
-            level.LevelEnd();
+            level.Invoke("LevelEnd", 3);
         }
 
     }
