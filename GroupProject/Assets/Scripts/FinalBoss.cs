@@ -34,7 +34,7 @@ public class FinalBoss : MonoBehaviour
 
     //SFX
     private AudioSource audioSource;
-    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX, lightningSFX;
+    [SerializeField] AudioClip fireSkullSFX, frostbiteSFX, lightningSFX, death;
 
     //Level
     private GameManager code;
@@ -140,6 +140,7 @@ public class FinalBoss : MonoBehaviour
 
         if (health <= 0)
         {
+            audioSource.PlayOneShot(death);
             anim.SetBool("Dead", true);
             bossAlive = false;
             level.LevelEnd();

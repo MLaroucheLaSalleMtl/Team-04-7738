@@ -5750,6 +5750,11 @@ PrefabInstance:
       propertyPath: lightningSFX
       value: 
       objectReference: {fileID: 8300000, guid: 23c0d61366eb8ad42acea039b4c7106f, type: 3}
+    - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
+        type: 3}
+      propertyPath: death
+      value: 
+      objectReference: {fileID: 8300000, guid: 7769c78d197b1174a8c5688b044289ab, type: 3}
     - target: {fileID: 1677535955436058518, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: m_Name
