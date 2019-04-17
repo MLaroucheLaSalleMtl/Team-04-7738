@@ -12,16 +12,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Final Scenes/Main Menu.unity
     guid: 796303fb07b7f474c8610cdb2d6def36
   - enabled: 1
-    path: Assets/Scenes/Final Scenes/J Level 1.unity
+    path: Assets/Scenes/Final Scenes/L1.unity
     guid: e295af6bea5fbe44d910a7191dc8689f
   - enabled: 1
-    path: Assets/Scenes/Final Scenes/J Level 2.unity
+    path: Assets/Scenes/Final Scenes/L2.unity
     guid: 05041fc68c6898947a3269780207dcd6
   - enabled: 1
+<<<<<<< HEAD
+    path: Assets/Scenes/Final Scenes/L4.unity
+=======
     path: Assets/Scenes/Final Scenes/J Level 3.unity
     guid: f8cca2b1d1a77ba459fc73022c920456
   - enabled: 1
     path: Assets/Scenes/Final Scenes/J PRE BOSS LEVEL.unity
+>>>>>>> master
     guid: 501b0f885f244b74f8a5be252a7e81b0
   - enabled: 1
     path: Assets/Scenes/Final Scenes/Testing Final Boss.unity
