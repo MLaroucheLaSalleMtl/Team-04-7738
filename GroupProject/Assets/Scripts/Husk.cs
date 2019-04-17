@@ -26,6 +26,19 @@ public class Husk : MonoBehaviour
         transform.position = clone.transform.position;
     }
 
+    public void Die()
+    {
+        if (clone.GetComponent<Player>() != null)
+        {
+            clone.GetComponent<Player>().Die();
+        }
+
+        else
+        {
+            clone.GetComponent<PlayerTransformed>().Die();
+        }
+    }
+
     public void SwapCharacters<T>(T myPlayer, bool flipped)
     {
         if (myPlayer is Player)

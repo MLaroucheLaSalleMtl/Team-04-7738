@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 {
     private GameManager code;
     private EventSystem myEventSystem;
-
+    private Husk player;
     //Player
     [SerializeField] Text playerScore;
 
@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour
         levelText.text = $"LEVEL\n {code.GetLevel()}";
         levelComplete = false;
         levelEndTimer = 4;
+        player = FindObjectOfType<Husk>();
     }
 
     IEnumerator HighlightBtn()//code taken from https://answers.unity.com/questions/1011523/first-selected-gameobject-not-highlighted.html sets first button as highlighted in pause menu
@@ -122,12 +123,14 @@ public class LevelManager : MonoBehaviour
 
     public void Restart()
     {
-        if (!levelComplete)
-        {
-            Time.timeScale = 1;
-            Scene currScene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(currScene.name);
-        }
+        //if (!levelComplete)
+        //{
+        //    Time.timeScale = 1;
+        //    Scene currScene = SceneManager.GetActiveScene();
+        //    SceneManager.LoadScene(currScene.name);
+        //}
+        player.Die();
+        Pause();
     }
 
     public void LevelEnd()
