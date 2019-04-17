@@ -13,13 +13,13 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        ChaosBallSFX();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = new Vector3(transform.position.x + travelSpeed, transform.position.y);
-        ChaosBallSFX();
 
 
         lifeTime -= Time.deltaTime;
