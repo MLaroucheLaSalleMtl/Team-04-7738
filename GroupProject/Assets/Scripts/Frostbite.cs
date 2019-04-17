@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Frostbite : MonoBehaviour
 {
-    [SerializeField] private float travelSpeed = 0.175f;
-    [SerializeField] private float lifeTime = 2.0f;
+    private float travelSpeed = 0.175f;
+    private float lifeTime = 2.0f;
 
     void Update()
     {

@@ -6,17 +6,20 @@ public class Projectile : MonoBehaviour
 {
     private float travelSpeed = 0.175f;
     private float lifeTime = 5.0f;
+    private AudioSource audioSource;
+    [SerializeField] AudioClip chaosBallSFX;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position = new Vector3(transform.position.x + travelSpeed, transform.position.y);
+        ChaosBallSFX();
 
 
         lifeTime -= Time.deltaTime;
@@ -46,5 +49,10 @@ public class Projectile : MonoBehaviour
     public void ChangeDirection()
     {
         travelSpeed = -travelSpeed;
+    }
+
+    private void ChaosBallSFX()
+    {
+        audioSource.PlayOneShot(chaosBallSFX);
     }
 }

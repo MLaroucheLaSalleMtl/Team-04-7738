@@ -2874,7 +2874,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342624779}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.11, y: 0.24, z: -2.3574219}
+  m_LocalPosition: {x: -5.2, y: -6.12, z: -2.3574219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2009559645}
@@ -4148,7 +4148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1323856482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.36, y: 0.24000001, z: -2.3574219}
+  m_LocalPosition: {x: -14.36, y: -6.12, z: -2.3574219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2009559645}
@@ -4658,7 +4658,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1562529950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.12, y: 0.24000001, z: -2.3574219}
+  m_LocalPosition: {x: -9.73, y: -6.12, z: -2.3574219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2009559645}
@@ -4927,7 +4927,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1781500523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.72, y: 0.24000001, z: -2.3574219}
+  m_LocalPosition: {x: -18.72, y: -6.12, z: -2.3574219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2009559645}
@@ -5668,7 +5668,7 @@ PrefabInstance:
         type: 3}
       propertyPath: frostbiteSFX
       value: 
-      objectReference: {fileID: 8300000, guid: 23c0d61366eb8ad42acea039b4c7106f, type: 3}
+      objectReference: {fileID: 8300000, guid: 453628569d64efb48b20ab0557b40298, type: 3}
     - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: hearts.Array.data[10]
@@ -5745,6 +5745,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5561928561478889331, guid: d5d1892f7837aba4897980374b37b3dc,
         type: 3}
+    - target: {fileID: 1677535954674914133, guid: be3c110b41f3f3747900cc81179f8ba3,
+        type: 3}
+      propertyPath: lightningSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 23c0d61366eb8ad42acea039b4c7106f, type: 3}
     - target: {fileID: 1677535955436058518, guid: be3c110b41f3f3747900cc81179f8ba3,
         type: 3}
       propertyPath: m_Name

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fireskull : MonoBehaviour
 {
-    [SerializeField] private float travelSpeed = 0.175f;
+    private float travelSpeed = 0.175f;
     private float lifeTime = 5.0f;
 
     void Update()
