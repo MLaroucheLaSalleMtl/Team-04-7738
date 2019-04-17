@@ -14,7 +14,7 @@ public class EndScreen : MonoBehaviour
     {
         code = FindObjectOfType<GameManager>();
 
-        score = new int[4];
+        score = new int[5];
         score = code.GetAllScores();
 
         scoreText.text = "";

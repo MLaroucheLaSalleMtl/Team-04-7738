@@ -98,7 +98,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   groundDetection: {fileID: 6594227496068616638}
+<<<<<<< HEAD
   death: {fileID: 8300000, guid: 262a8b58bcc860445bd88d1911ff7139, type: 3}
+=======
+  death: {fileID: 8300000, guid: cb9505b2e1e08704ea750e08570d2eed, type: 3}
+>>>>>>> master
 --- !u!95 &6594227495337911207
 Animator:
   serializedVersion: 3

@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         async = SceneManager.LoadSceneAsync(levelToLoad);
-        levelCount = 8;
-        score = new int[4];
+        levelCount = 9;
+        score = new int[5];
     }
 
     // Update is called once per frame
