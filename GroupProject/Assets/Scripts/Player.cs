@@ -257,9 +257,6 @@ public class Player : MonoBehaviour
 
         RaycastHit2D groundInfo = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.88f), Vector2.down);
 
-        Debug.Log(groundInfo.distance);
-        Debug.Log(groundInfo.collider.gameObject);
-
         if (groundInfo.distance < 0.1f && groundInfo.collider.gameObject.tag == "TileMap")
         {
             isGrounded = true;
